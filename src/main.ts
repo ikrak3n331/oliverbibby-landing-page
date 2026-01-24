@@ -1,21 +1,25 @@
 import './style.css'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div class="bg-mesh"></div>
+  <div class="bg-gradient">
+    <div class="shifting-blob blob-1"></div>
+    <div class="shifting-blob blob-2"></div>
+  </div>
   <div class="hero">
     <h1>Oliver Bibby</h1>
-    <p class="subtitle">Creative Vision & Digital Alchemy</p>
-    <div class="manifesting">Manifesting soon</div>
+    <p class="subtitle">Design & Future Manifestation</p>
+    <div class="status-tag">Coming Soon</div>
   </div>
 `
 
-// Optional: Add subtle parallax or interactive elements here
+// Subtle mouse interactivity for the "shifting" blobs
 document.addEventListener('mousemove', (e) => {
-  const mesh = document.querySelector('.bg-mesh') as HTMLDivElement;
-  if (!mesh) return;
+  const blobs = document.querySelectorAll('.shifting-blob');
+  const x = (e.clientX / window.innerWidth - 0.5) * 40;
+  const y = (e.clientY / window.innerHeight - 0.5) * 40;
 
-  const x = (e.clientX / window.innerWidth) * 20;
-  const y = (e.clientY / window.innerHeight) * 20;
-
-  mesh.style.transform = `translate(${-x}px, ${-y}px)`;
+  blobs.forEach((blob, index) => {
+    const factor = (index + 1) * 0.5;
+    (blob as HTMLElement).style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+  });
 });
