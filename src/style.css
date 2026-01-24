@@ -44,6 +44,7 @@ body {
 }
 
 /* News Pill */
+/* News Pill */
 .news-pill {
   background: var(--pill-bg);
   padding: 0.5rem 1.25rem;
@@ -55,6 +56,17 @@ body {
   margin-bottom: 0.5rem;
   opacity: 0;
   /* JS reveal */
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: default;
+  /* Default cursor to hide clickability initially if strict, but 'pointer' is standard for links. User said 'show lozenge clickable on hover', usually implies visual change or cursor change. I'll use standard pointer but keep visual change subtle. */
+  cursor: pointer;
+}
+
+.news-pill:hover {
+  background: #e5e7eb;
+  /* Slightly darker on hover */
+  border-color: #d1d5db;
 }
 
 /* Heading */
