@@ -1,25 +1,40 @@
 import './style.css'
+import gsap from 'gsap'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div class="bg-gradient">
-    <div class="shifting-blob blob-1"></div>
-    <div class="shifting-blob blob-2"></div>
-  </div>
-  <div class="hero">
-    <h1>Oliver Bibby</h1>
-    <p class="subtitle">Design & Future Manifestation</p>
-    <div class="status-tag">Coming Soon</div>
-  </div>
-`
+// Initialize Animations
+document.addEventListener('DOMContentLoaded', () => {
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-// Subtle mouse interactivity for the "shifting" blobs
-document.addEventListener('mousemove', (e) => {
-  const blobs = document.querySelectorAll('.shifting-blob');
-  const x = (e.clientX / window.innerWidth - 0.5) * 40;
-  const y = (e.clientY / window.innerHeight - 0.5) * 40;
+  // 1. Staggered Text Reveal
+  // Items slide up slightly and fade in
+  tl.fromTo('.reveal-text',
+    {
+      y: 30,
+      opacity: 0
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      stagger: 0.15
+    }
+  );
 
-  blobs.forEach((blob, index) => {
-    const factor = (index + 1) * 0.5;
-    (blob as HTMLElement).style.transform = `translate(${x * factor}px, ${y * factor}px)`;
-  });
+  // 2. Graceful Image Entry
+  // The image fades in and moves up slightly slower to create depth
+  tl.fromTo('.hero-image',
+    {
+      y: 100,
+      opacity: 0,
+      scale: 1.05
+    },
+    {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      duration: 2.0,
+      ease: 'power2.out'
+    },
+    '-=1.0' // Start overlapping with text animation
+  );
 });

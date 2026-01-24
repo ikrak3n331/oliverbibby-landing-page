@@ -1,152 +1,140 @@
 :root {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'DM Sans', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color: #1d1d1f;
+  color: #1a1a1a;
   background-color: #ffffff;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --primary-text: #111827;
+  --secondary-text: #6b7280;
+  --pill-bg: #f3f4f6;
+  --btn-gradient-start: #06b6d4;
+  --btn-gradient-end: #0ea5e9;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
-  overflow: hidden;
-  background: #fbfbfd;
+  overflow-x: hidden;
+  background: white;
 }
 
 #app {
   width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  position: relative;
-  z-index: 10;
 }
 
-.hero {
+.hero-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding-top: 8vh;
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1.5rem;
-  animation: appleReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  z-index: 10;
+  padding: 0 1rem;
 }
 
-h1 {
-  font-size: 4rem;
-  font-weight: 600;
-  margin: 0;
-  letter-spacing: -0.02em;
-  color: #1d1d1f;
-}
-
-.subtitle {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #86868b;
-  margin: 0;
-}
-
-.status-tag {
-  margin: 2rem auto 0;
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
+/* News Pill */
+.news-pill {
+  background: var(--pill-bg);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #86868b;
-  background: rgba(0, 0, 0, 0.03);
-  border-radius: 99px;
-  width: fit-content;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  /* JS reveal */
 }
 
-/* Apple-style Shifting Background */
-.bg-gradient {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Heading */
+h1 {
+  font-size: 4.5rem;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: var(--primary-text);
+  opacity: 0;
+  /* JS reveal */
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--secondary-text);
+  max-width: 600px;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.6;
+  opacity: 0;
+  /* JS reveal */
+}
+
+/* CTA Button */
+.cta-container {
+  margin-top: 1rem;
+  opacity: 0;
+  /* JS reveal */
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+}
+
+/* Illustration Wrapper */
+.illustration-wrapper {
   width: 100%;
-  height: 100%;
-  z-index: 1;
-  background:
-    radial-gradient(circle at 80% 20%, rgba(245, 245, 247, 1) 0%, transparent 40%),
-    radial-gradient(circle at 20% 80%, rgba(245, 245, 247, 0.8) 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, #ffffff 0%, transparent 100%);
+  margin-top: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.shifting-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.4;
-  z-index: 2;
-  transition: all 5s ease-in-out;
-}
-
-.blob-1 {
-  width: 60vh;
-  height: 60vh;
-  background: rgba(0, 102, 204, 0.04);
-  top: -10%;
-  right: -10%;
-  animation: moveBlob1 20s infinite alternate;
-}
-
-.blob-2 {
-  width: 50vh;
-  height: 50vh;
-  background: rgba(0, 0, 0, 0.03);
-  bottom: -5%;
-  left: -5%;
-  animation: moveBlob2 25s infinite alternate;
-}
-
-@keyframes appleReveal {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.98);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes moveBlob1 {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  100% {
-    transform: translate(-20%, 20%) scale(1.1);
-  }
-}
-
-@keyframes moveBlob2 {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  100% {
-    transform: translate(20%, -20%) scale(1.05);
-  }
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateY(100px);
+  /* Start slightly down for animation */
+  opacity: 0;
 }
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .subtitle {
     font-size: 1.1rem;
+  }
+
+  .hero-container {
+    padding-top: 12vh;
   }
 }
