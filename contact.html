@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Oliver Bibby</title>
+  <meta name="description"
+    content="Professional correspondence with Oliver Bibby — Design Lead specialising in UX strategy and systems architecture." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <script type="module" src="/src/main.ts"></script>
+</head>
+
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <img src="/logo.svg" alt="Oliver Logo" style="height: 20px; width: auto;" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#work">Case Studies</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__right">
+        <button class="nav__hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="nav__drawer">
+    <a href="/">Home</a>
+    <a href="/#work">Case Studies</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+
+  <!-- ── Contact Content (Centered) ── -->
+  <section class="section" style="padding-top: calc(var(--nav-h) + 80px); padding-bottom: 120px;">
+    <div class="container" style="max-width: 800px; text-align: center;">
+
+      <!-- Hero -->
+      <div class="fade-up" style="margin-bottom: 64px;">
+        <p class="eyebrow" style="margin-bottom: 16px; color: #0066FF;">LET'S CHAT</p>
+        <h1 class="h1" style="margin-bottom: 24px; line-height: 1.1;">Get in Contact</h1>
+        <p class="lead" style="margin: 0 auto; max-width: 580px;">I'm always available for a coffee to talk Design
+          Systems, digital strategy or upskilling.</p>
+      </div>
+
+      <!-- Form Block -->
+      <div class="fade-up delay-1"
+        style="background: white; border: 1px solid var(--border); padding: 56px; border-radius: 8px; text-align: left; box-shadow: 0 4px 30px rgba(0,0,0,0.02);">
+        <form action="https://formspree.io/f/obibby@gmail.com" method="POST" id="contact-form">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label
+                style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Name</label>
+              <input type="text" name="name" placeholder="Name"
+                style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit;">
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label
+                style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Email</label>
+              <input type="email" name="email" placeholder="Email@example.com"
+                style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit;">
+            </div>
+          </div>
+          <div style="margin-bottom: 24px;">
+            <label
+              style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Subject
+              / Nature of Inquiry</label>
+            <select
+              style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; background: white; appearance: none;">
+              <option>Systems Strategy</option>
+              <option>Institutional Architecture</option>
+              <option>Product Governance</option>
+              <option>Professional Dialogue / Coffee</option>
+            </select>
+          </div>
+          <div style="margin-bottom: 40px;">
+            <label
+              style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Message</label>
+            <textarea placeholder="The message..."
+              style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; min-height: 180px; resize: none;"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary"
+            style="width: 100%; padding: 20px; font-size: 0.95rem; letter-spacing: 0.05em;">Send Message →</button>
+        </form>
+        <p id="form-status"
+          style="margin-top: 24px; font-size: 0.95rem; text-align: center; color: #22C55E; display: none; font-family: 'Public Sans', sans-serif;">
+          Inquiry successful. I will respond to your correspondence shortly.</p>
+      </div>
+
+      <!-- Subtle Footer Detail -->
+      <div class="fade-up delay-2" style="margin-top: 56px;">
+        <p style="font-family: 'Newsreader', serif; font-size: 1.15rem; color: var(--accent); font-style: italic;">Based
+          in Melbourne, Australia.</p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">
+          <img src="/logo.svg" alt="Oliver Logo" style="height: 19px; width: auto;" />
+        </div>
+        <p class="footer__copy">© 2026 Oliver Bibby. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button');
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      btn.textContent = 'Dispatching...';
+      btn.disabled = true;
+
+      try {
+        const response = await fetch('https://formspree.io/f/obibby@gmail.com', {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          btn.textContent = 'Inquiry Sent ✓';
+          status.style.display = 'block';
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (error) {
+        btn.textContent = 'Submission Failed';
+        console.error('Error:', error);
+      } finally {
+        setTimeout(() => {
+          btn.textContent = 'Send Message →';
+          btn.disabled = false;
+          status.style.display = 'none';
+        }, 5000);
+      }
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ripple Extended Design System — Oliver Bibby</title>
+  <meta name="description" content="Scaling consistency across Telstra's digital product suite." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <script type="module" src="/src/main.ts"></script>
+</head>
+
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <img src="/logo.svg" alt="Oliver Logo" style="height: 20px; width: auto;" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#work">Case Studies</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__right">
+        <button class="nav__hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="nav__drawer">
+    <a href="/">Home</a>
+    <a href="/#work">Case Studies</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+
+  <!-- ── Project Hero ── -->
+  <section class="section" style="padding-top: calc(var(--nav-h) + 60px); padding-bottom: 40px;">
+    <div class="container">
+      <div class="fade-up">
+        <p class="eyebrow" style="margin-bottom: 12px; color: #0066FF;">DESIGN SYSTEMS</p>
+        <h1 class="h1" style="margin-bottom: 32px;">Ripple Extended Design System</h1>
+      </div>
+      <div class="fade-up delay-1" style="overflow: hidden; border-radius: 8px;">
+        <img src="/work/ripple/ripple1.jpg" alt="Ripple Extended Design System Hero"
+          style="width: 100%; height: auto; display: block;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Metadata Bar ── -->
+  <section
+    style="padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: white;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 32px;">
+        <div>
+          <p class="eyebrow" style="font-size: 0.65rem; margin-bottom: 8px;">CLIENT</p>
+          <p
+            style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--accent);">
+            Department of Education</p>
+        </div>
+        <div>
+          <p class="eyebrow" style="font-size: 0.65rem; margin-bottom: 8px;">ROLE</p>
+          <p
+            style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--accent);">
+            Design Lead</p>
+        </div>
+        <div>
+          <p class="eyebrow" style="font-size: 0.65rem; margin-bottom: 8px;">TIMELINE</p>
+          <p
+            style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--accent);">
+            3 Months</p>
+        </div>
+        <div>
+          <p class="eyebrow" style="font-size: 0.65rem; margin-bottom: 8px;">SERVICES</p>
+          <p
+            style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--accent);">
+            Strategy, UX</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Content Framework ── -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 80px; max-width: 900px; margin: 0 auto;">
+
+        <div class="fade-up">
+          <h2 class="h3" style="margin-bottom: 16px; color: var(--accent);">The Context</h2>
+          <p class="lead">The Department of Education's Digital Innovation Branch was set to design and develop a large
+            selection of new systems in 2025 and 2026, This required a new set of frameworks and guidelines to be
+            developed so that we could maintain a high level of quality while also developing at a faster pace that
+            previously possible. I lead the selection and creation of these new frameworks.
+
+            <br><br> As these frameworks were being developed the Department of Education also launched a new set of
+            Brand Guidelines, requiring us to style all new systems to suit this new look and feel.
+          </p>
+        </div>
+
+        <div class="fade-up">
+          <h2 class="h3" style="margin-bottom: 16px; color: var(--accent);">The Task</h2>
+          <p class="lead">To allow for the creation of this new set of large and complex systems, along with the new
+            frameworks and best practice guidelines, I defined and
+            developed (with support and feedback from the whole UX team) a new Design System. This systems was based on
+            the
+            structure of the current all-of-government Ripple Design System but completely reworked to
+            match the new Brand Guidelines and redefined to meet our unique technical requirements.</p>
+        </div>
+
+        <div class="fade-up">
+          <h2 class="h3" style="margin-bottom: 16px; color: var(--accent);">The Strategy</h2>
+          <p class="lead">We worked from the ground up to completely redefine the Ripple Design System, naming it Ripple
+            Extended. First we restyled the hundreds of components to match the new branding, then we defined new
+            patterns
+            of components and then combined these to produce page templates.
+
+            <br><br> Page templates were chosen based on frequency of use, such as form pages, landing pages and
+            dashboads.<br><br>While developing this design system and set of page templates we also defined standardised
+            process flows and user journeys, such that when a new digital experience was created, standardised
+            templates and process flows were utilised to significantly accelerate the design and development process.
+          </p>
+        </div>
+        <!--
+        <div class="fade-up">
+          <blockquote
+            style="font-family: 'Newsreader', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-style: italic; color: var(--accent); border-left: 3px solid #0066FF; padding-left: 32px; margin: 40px 0;">
+            "Scaling is not about more components; it's about better governance and the reduction of friction."
+          </blockquote>
+        </div>-->
+
+        <div class="fade-up">
+          <h2 class="h3" style="margin-bottom: 16px; color: var(--accent);">The Impact</h2>
+          <p class="lead">With the launch of our new Ripple Extended Design System, UX designs and the definition of
+            process flows moved from weeks and months to days.<br><br>One notable benefit was the creation of a
+            standardised registration and log in process, which previously took 2 weeks, was reduced to 2 days per
+            project, a significant time and cost saving. <br><br>With our new set of components, patterns, pages and
+            process flows system builds are signifcanlty more consistent, easier to build and a high level of quality,
+            especially when paired with a new set of frameworks and guidelines we developed to support the new Design
+            System.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Gallery ── -->
+  <section class="section" style="background: #f0f2f7;">
+    <div class="container">
+      <div style="display: flex; flex-direction: column; gap: 32px;">
+        <div style="border-radius: 8px; overflow: hidden;">
+          <img src="/work/ripple/ripple2-v3.jpg" alt="Ripple System Case Study 01"
+            style="width: 100%; height: auto; display: block;" />
+        </div>
+        <div style="border-radius: 8px; overflow: hidden;">
+          <img src="/work/ripple/ripple3.jpg" alt="Ripple System Case Study 02"
+            style="width: 100%; height: auto; display: block;" />
+        </div>
+        <div style="border-radius: 8px; overflow: hidden;">
+          <img src="/work/ripple/ripple4.jpg" alt="Ripple System Case Study 03"
+            style="width: 100%; height: auto; display: block;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">
+          <img src="/logo.svg" alt="Oliver Logo" style="height: 19px; width: auto;" />
+        </div>
+        <p class="footer__copy">© 2026 Oliver Bibby. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

@@ -3,44 +3,314 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oliver Bibby | UX Strategist</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&display=swap"
-    rel="stylesheet">
+  <title>Oliver Bibby — Design Lead</title>
+  <meta name="description"
+    content="Oliver Bibby is a Design Lead specialising in UX strategy, product design, and design systems. Based in Melbourne, working globally." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <script type="module" src="/src/main.ts"></script>
 </head>
 
 <body>
-  <div id="app">
-    <main class="hero-container">
 
-      <div class="content-wrapper">
-        <a href="https://premiersdesignawards.vic.gov.au/entries/2025/design-strategy/connected-experience"
-          target="_blank" rel="noopener noreferrer" class="news-pill reveal-text">
-          <span>Latest News: Victorian Design Awards Finalist!</span>
-        </a>
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <img src="/logo.svg" alt="Oliver Logo" style="height: 20px; width: auto;" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#work">Case Studies</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__right">
+        <button class="nav__hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-        <h1 class="reveal-text">Oliver Bibby</h1>
+  <!-- Mobile Drawer -->
+  <div class="nav__drawer">
+    <a href="/">Home</a>
+    <a href="/#work">Case Studies</a>
+    <a href="/contact.html">Contact</a>
+  </div>
 
-        <p class="subtitle reveal-text">
-          A UX strategist and design lead dedicated to<br>
-          building scalable, user-centric products.
-        </p>
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__inner">
 
-        <div class="cta-container reveal-text">
-          <button class="cta-button">New Site Coming Soon</button>
+        <div class="fade-up delay-1">
+          <h1 class="h1 hero__headline">Connecting people, services, and business strategy</h1>
+          <p class="lead hero__sub">Decades of experience unraveling complex systems to deliver
+            human-centered digital infrastructure at a national scale</p>
         </div>
       </div>
+    </div><!-- End of .container -->
 
-      <div class="illustration-wrapper">
-        <img src="/hero-illustration.png" alt="Creative Landscape" class="hero-image" />
+    <!-- ── Logo Marquee ── -->
+    <section class="marquee-section">
+      <p class="eyebrow marquee-section__label">Brands I’ve worked with</p>
+      <div class="marquee-track">
+        <div class="marquee-inner">
+          <!-- Set 1 -->
+          <img src="/nestle.svg" alt="Nestle" class="marquee-logo" style="height: 38px; filter: brightness(0) invert(1);" />
+          <img src="/bupawhite.svg" alt="Bupa" class="marquee-logo" />
+          <img src="/jeep.png" alt="Jeep" class="marquee-logo" style="height: 32px; filter: brightness(0) invert(1);" />
+          <img src="/specsavers.svg" alt="Specsavers" class="marquee-logo" style="height: 35px;" />
+          <img src="/officeworks.svg" alt="Officeworks" class="marquee-logo" style="height: 31px;" />
+          <img src="/target.svg" alt="Target" class="marquee-logo" style="height: 40px;" />
+          <img src="/alfaromeo.svg" alt="Alfa Romeo" class="marquee-logo" style="height: 48px;" />
+          <img src="/logoao.png" alt="AO" class="marquee-logo" style="height: 34px; filter: brightness(0) invert(1);" />
+          <img src="/telstra.png" alt="Telstra" class="marquee-logo" style="height: 38px; filter: brightness(0) invert(1);" />
+
+          <!-- Set 2 (duplicate for seamless loop) -->
+          <img src="/nestle.svg" alt="Nestle" class="marquee-logo" style="height: 38px; filter: brightness(0) invert(1);" />
+          <img src="/bupawhite.svg" alt="Bupa" class="marquee-logo" />
+          <img src="/jeep.png" alt="Jeep" class="marquee-logo" style="height: 32px; filter: brightness(0) invert(1);" />
+          <img src="/specsavers.svg" alt="Specsavers" class="marquee-logo" style="height: 35px;" />
+          <img src="/officeworks.svg" alt="Officeworks" class="marquee-logo" style="height: 31px;" />
+          <img src="/target.svg" alt="Target" class="marquee-logo" style="height: 40px;" />
+          <img src="/alfaromeo.svg" alt="Alfa Romeo" class="marquee-logo" style="height: 48px;" />
+          <img src="/logoao.png" alt="AO" class="marquee-logo" style="height: 34px; filter: brightness(0) invert(1);" />
+          <img src="/telstra.png" alt="Telstra" class="marquee-logo" style="height: 38px; filter: brightness(0) invert(1);" />
+        </div>
       </div>
+    </section>
+  </section>
 
-    </main>
-  </div>
-  <script type="module" src="/src/main.ts"></script>
+
+  <!-- ── Strategic Impact ── -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="services__header fade-up" style="display: flex; align-items: center; justify-content: space-between;">
+        <h2 class="h2">Key Focus Areas</h2>
+        <p class="lead" style="max-width:416px; text-align: right; margin-left: auto;">Creating human-centric,
+          accessible, responsive and connected systems are my passion.</p>
+      </div>
+      <div class="services__grid">
+        <div class="service-card fade-up">
+          <div class="service-card__icon" style="width:42px; height:42px; margin-bottom:20px;">
+            <img src="/focus01.svg" alt="People" style="width:100%; height:100%; object-fit:contain;" />
+          </div>
+          <h3 class="h4" style="margin-bottom:8px;">Collaboration</h3>
+          <p class="service-card__desc">Working closely with users, stakeholders, and build teams to understand needs,
+            shape solutions, and ensure systems are intuitive, desirable and effective.</p>
+        </div>
+        <div class="service-card fade-up delay-1">
+          <div class="service-card__icon" style="width:42px; height:42px; margin-bottom:20px;">
+            <img src="/focus02.svg" alt="Frameworks" style="width:100%; height:100%; object-fit:contain;" />
+          </div>
+          <h3 class="h4" style="margin-bottom:8px;">Frameworks</h3>
+          <p class="service-card__desc">Accelerated developement, improved accessibility and new levels of quality can
+            be achieved thorough building foundational frameworks that scale.</p>
+        </div>
+        <div class="service-card fade-up delay-2">
+          <div class="service-card__icon" style="width:42px; height:42px; margin-bottom:20px;">
+            <img src="/focus03.svg" alt="Services" style="width:100%; height:100%; object-fit:contain;" />
+          </div>
+          <h3 class="h4" style="margin-bottom:8px;">Services</h3>
+          <p class="service-card__desc">Designing and delivering scalable, user-centred systems that connect services,
+            streamline processes, and improve the experience for all users internally and externally.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Selected Case Studies ── -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="work__header fade-up"
+        style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px;">
+        <h2 class="h2">Selected Case Studies</h2>
+        <a href="/#work" class="btn"
+          style="border: none; font-family: 'Public Sans', sans-serif; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; color: var(--accent); padding: 0;">VIEW
+          ALL PROJECTS</a>
+      </div>
+      <div class="bento-container" style="display:flex; flex-direction:column; gap:48px;">
+
+        <!-- Top Row -->
+        <div class="bento-top" style="display:grid; grid-template-columns: 1fr; gap:32px;">
+          <!-- Large Card -->
+          <a href="/work/ripple-system.html" class="work-card fade-up">
+            <div class="work-card__image" style="height: 400px; border-radius: 8px; overflow: hidden;">
+              <img src="/work/ripple/ripple1.jpg" alt="Ripple Extended Design System"
+                style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div class="work-card__meta"
+              style="margin-top:24px; flex-direction:column; align-items:flex-start; gap: 8px;">
+              <span class="work-card__tag" style="background:#00152a; color:#fff; border-radius:4px;">CASE STUDY
+                01</span>
+              <span class="work-card__title" style="font-size: 1.8rem; margin-top:4px;">Ripple Extended Design
+                System</span>
+              <p class="work-card__desc">A comprehensive, token-based design architecture scaled across Telstra's
+                digital ecosystem.</p>
+            </div>
+          </a>
+
+          <!-- Stacked Cards -->
+          <div class="bento-stack fade-up delay-1" style="display:flex; flex-direction:column; gap:32px;">
+            <a href="/work/connected-experience.html" class="work-card">
+              <div class="work-card__image" style="height: 200px; border-radius: 8px; overflow: hidden;">
+                <img src="/work/connected/Connected-Experience-1-Department-of-Education.jpg" alt="The Connected Experience"
+                  style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+              <div class="work-card__meta"
+                style="margin-top:16px; flex-direction:column; align-items:flex-start; gap:4px;">
+                <span class="work-card__eyebrow">STRATEGY</span>
+                <span class="work-card__title">The Connected Experience</span>
+              </div>
+            </a>
+            <a href="/work/student-travel.html" class="work-card">
+              <div class="work-card__image">
+                <div class="placeholder border-box" style="height: 200px; background: #a6d0fe; border-radius: 8px;">
+                </div>
+              </div>
+              <div class="work-card__meta"
+                style="margin-top:16px; flex-direction:column; align-items:flex-start; gap:4px;">
+                <span class="work-card__eyebrow">TRAVEL</span>
+                <span class="work-card__title">Student Travel System</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="bento-bottom" style="display:grid; grid-template-columns: 1fr; gap:32px;">
+          <!-- Card 3 -->
+          <a href="/work/work-based-learning.html" class="work-card fade-up delay-2">
+            <div class="work-card__image">
+              <div class="placeholder border-box" style="height: 280px; background: #15324b; border-radius: 8px;"></div>
+            </div>
+            <div class="work-card__meta"
+              style="margin-top:16px; flex-direction:column; align-items:flex-start; gap:4px;">
+              <span class="work-card__eyebrow">EDUCATION</span>
+              <span class="work-card__title">Work-based Learning</span>
+            </div>
+          </a>
+
+          <!-- Card 4 -->
+          <a href="/work/target-microsite.html" class="work-card fade-up delay-3">
+            <div class="work-card__image" style="height: 280px; border-radius: 8px; overflow: hidden;">
+              <img src="/brands.png" alt="Target, Bupa and Officeworks"
+                style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <div class="work-card__meta"
+              style="margin-top:16px; flex-direction:column; align-items:flex-start; gap:4px;">
+              <span class="work-card__eyebrow">ENVIRONMENT</span>
+              <span class="work-card__title">Target Sustainability Microsite</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Philosophical Blueprint ── 
+  <section class="section" id="about">
+    <div class="container">
+      <div class="blueprint fade-up" style="display: grid; gap: 64px;">
+        <div style="display: flex; flex-direction: column; gap: 32px;">
+          <h2 class="h3" style="margin-bottom: 16px;">Philosophical<br>Blueprint</h2>
+
+          <div class="blueprint-item" style="border-left: 2px solid #0066FF; padding-left: 20px;">
+            <h4 style="font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 8px;">INTEGRITY</h4>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Unwavering commitment to truth in design, ensuring
+              systems reflect honest human needs.</p>
+          </div>
+
+          <div class="blueprint-item" style="border-left: 2px solid #0066FF; padding-left: 20px;">
+            <h4 style="font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 8px;">RESPECT</h4>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Designing systems that honor the dignity and time
+              of every single user and ecosystem.</p>
+          </div>
+
+          <div class="blueprint-item" style="border-left: 2px solid #0066FF; padding-left: 20px;">
+            <h4 style="font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 8px;">LEADERSHIP</h4>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Pioneering transformational infrastructure with
+              calm, guided authority.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+          <blockquote
+            style="font-family: 'Newsreader', 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.3; color: var(--accent); font-style: italic; max-width: 800px; margin: 0;">
+            "The role of the Diplomat is not just to negotiate, but to architect the very spaces where consensus is
+            built. In design, this means creating systems that are as resilient as they are humane."
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>-->
+
+  <!-- ── Testimonials ── 
+  <section class="section">
+    <div class="container">
+      <div class="fade-up" style="margin-bottom:48px;">
+        <p class="eyebrow" style="margin-bottom:12px;">Kind Words</p>
+        <h2 class="h2">What people say.</h2>
+      </div>
+      <div class="testimonials__grid">
+        <div class="testimonial-card fade-up">
+          <p class="testimonial-card__quote">"Oliver brought a rare combination of strategic thinking and craft to our
+            product team. He reshaped how we approach design from the ground up — and the results spoke for themselves."
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"></div>
+            <div>
+              <div class="testimonial-card__name">Sarah Mitchell</div>
+              <div class="testimonial-card__role">VP Product, Spotify Australia</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up delay-1">
+          <p class="testimonial-card__quote">"The design system Oliver built for us has scaled across four product lines
+            with zero drift. It's the best investment we've made in our design practice."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar"></div>
+            <div>
+              <div class="testimonial-card__name">James Chen</div>
+              <div class="testimonial-card__role">Head of Digital, Telstra</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+
+  <!-- ── CTA ── -->
+  <section class="section cta-section" style="padding-top: 24px;">
+    <div class="container fade-up">
+      <div
+        style="background: linear-gradient(180deg, #00152a 0%, #000810 100%); padding: 80px 40px; border-radius: 12px; text-align: center; color: white;">
+        <h2 class="h2" style="color: white; margin-bottom: 24px;">Want to chat?</h2>
+        <p style="color: #c0c6d5; max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.6;">From
+          complex systems governance to leading impactful product initiatives, I'm always available for a coffee.</p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="/contact.html" class="btn cta-btn">Get in Touch</a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">
+          <img src="/logo.svg" alt="Oliver Logo" style="height: 19px; width: auto;" />
+        </div>
+        <p class="footer__copy">© 2026 Oliver Bibby. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 
 </html>

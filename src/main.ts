@@ -1,40 +1,77 @@
-import './style.css'
-import gsap from 'gsap'
+// ============================================================
+// OLIVER BIBBY PORTFOLIO — Shared JavaScript
+// ============================================================
 
-// Initialize Animations
-document.addEventListener('DOMContentLoaded', () => {
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+import './style.css';
 
-  // 1. Staggered Text Reveal
-  // Items slide up slightly and fade in
-  tl.fromTo('.reveal-text',
-    {
-      y: 30,
-      opacity: 0
-    },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1.2,
-      stagger: 0.15
+// ── Nav scroll state ─────────────────────────────────────────
+const nav = document.querySelector('.nav') as HTMLElement | null;
+if (nav) {
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+}
+
+// ── Mobile nav toggle ─────────────────────────────────────────
+const hamburger = document.querySelector('.nav__hamburger');
+const drawer = document.querySelector('.nav__drawer');
+
+hamburger?.addEventListener('click', () => {
+  drawer?.classList.toggle('open');
+  const spans = hamburger.querySelectorAll('span');
+  const isOpen = drawer?.classList.contains('open');
+  if (spans[0] && spans[1] && spans[2]) {
+    (spans[0] as HTMLElement).style.transform = isOpen ? 'rotate(45deg) translate(5px, 5px)' : '';
+    (spans[1] as HTMLElement).style.opacity = isOpen ? '0' : '1';
+    (spans[2] as HTMLElement).style.transform = isOpen ? 'rotate(-45deg) translate(5px, -5px)' : '';
+  }
+});
+
+// Close drawer when a link is clicked
+drawer?.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    drawer.classList.remove('open');
+    const spans = hamburger?.querySelectorAll('span');
+    if (spans) {
+      (spans[0] as HTMLElement).style.transform = '';
+      (spans[1] as HTMLElement).style.opacity = '1';
+      (spans[2] as HTMLElement).style.transform = '';
     }
-  );
+  });
+});
 
-  // 2. Graceful Image Entry
-  // The image fades in and moves up slightly slower to create depth
-  tl.fromTo('.hero-image',
-    {
-      y: 100,
-      opacity: 0,
-      scale: 1.05
-    },
-    {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      duration: 2.0,
-      ease: 'power2.out'
-    },
-    '-=1.0' // Start overlapping with text animation
-  );
+// ── Active nav link ──────────────────────────────────────────
+const currentPath = window.location.pathname;
+document.querySelectorAll('.nav__links a, .nav__drawer a').forEach(link => {
+  const href = link.getAttribute('href') ?? '';
+  const isActive =
+    (href === '/' && (currentPath === '/' || currentPath === '/index.html')) ||
+    (href !== '/' && currentPath.includes(href.replace('.html', '')));
+  if (isActive) link.classList.add('active');
+});
+
+// ── Scroll-in animations ─────────────────────────────────────
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+);
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── Smooth scroll for anchor links ───────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector((link as HTMLAnchorElement).hash);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
 });
