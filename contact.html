@@ -54,26 +54,39 @@
       <!-- Form Block -->
       <div class="fade-up delay-1"
         style="background: white; border: 1px solid var(--border); padding: 56px; border-radius: 8px; text-align: left; box-shadow: 0 4px 30px rgba(0,0,0,0.02);">
-        <form action="https://formspree.io/f/obibby@gmail.com" method="POST" id="contact-form">
+
+        <!-- Success message -->
+        <div data-fs-success style="display:none; margin-bottom: 24px; padding: 16px 20px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; font-family: 'Public Sans', sans-serif; font-size: 0.95rem; color: #16a34a; text-align: center;">
+          Inquiry successful. I will respond to your correspondence shortly.
+        </div>
+
+        <!-- Form-level error -->
+        <div data-fs-error style="display:none; margin-bottom: 24px; padding: 16px 20px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: 'Public Sans', sans-serif; font-size: 0.9rem; color: #dc2626; text-align: center;"></div>
+
+        <form id="contact-form">
+          <!-- Hidden tag so every email is labelled from the website -->
+          <input type="hidden" name="_subject" value="New enquiry from oliverbibby.com" />
+
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
             <div class="form-group" style="margin-bottom: 0;">
               <label
                 style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Name</label>
-              <input type="text" name="name" placeholder="Name"
-                style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit;">
+              <input type="text" name="name" placeholder="Name" data-fs-field
+                style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit;" />
+              <span data-fs-error="name" style="font-size: 0.8rem; color: #dc2626; font-family: 'Public Sans', sans-serif;"></span>
             </div>
             <div class="form-group" style="margin-bottom: 0;">
               <label
                 style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Email</label>
-              <input type="email" name="email" placeholder="Email@example.com"
-                style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit;">
+              <input type="email" name="email" placeholder="Email@example.com" data-fs-field
+                style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit;" />
+              <span data-fs-error="email" style="font-size: 0.8rem; color: #dc2626; font-family: 'Public Sans', sans-serif;"></span>
             </div>
           </div>
           <div style="margin-bottom: 24px;">
             <label
-              style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Subject
-              / Nature of Inquiry</label>
-            <select
+              style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Subject / Nature of Inquiry</label>
+            <select name="subject" data-fs-field
               style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; background: white; appearance: none;">
               <option>Systems Strategy</option>
               <option>Institutional Architecture</option>
@@ -84,15 +97,13 @@
           <div style="margin-bottom: 40px;">
             <label
               style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Message</label>
-            <textarea placeholder="The message..."
+            <textarea name="message" placeholder="The message..." data-fs-field
               style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; min-height: 180px; resize: none;"></textarea>
+            <span data-fs-error="message" style="font-size: 0.8rem; color: #dc2626; font-family: 'Public Sans', sans-serif;"></span>
           </div>
-          <button type="submit" class="btn btn--primary"
+          <button type="submit" data-fs-submit-btn class="btn btn--primary"
             style="width: 100%; padding: 20px; font-size: 0.95rem; letter-spacing: 0.05em;">Send Message →</button>
         </form>
-        <p id="form-status"
-          style="margin-top: 24px; font-size: 0.95rem; text-align: center; color: #22C55E; display: none; font-family: 'Public Sans', sans-serif;">
-          Inquiry successful. I will respond to your correspondence shortly.</p>
       </div>
 
       <!-- Subtle Footer Detail -->
@@ -118,46 +129,10 @@
   </footer>
 
   <script>
-    const form = document.getElementById('contact-form');
-    const status = document.getElementById('form-status');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button');
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-
-      btn.textContent = 'Dispatching...';
-      btn.disabled = true;
-
-      try {
-        const response = await fetch('https://formspree.io/f/obibby@gmail.com', {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          }
-        });
-
-        if (response.ok) {
-          form.reset();
-          btn.textContent = 'Inquiry Sent ✓';
-          status.style.display = 'block';
-        } else {
-          throw new Error('Submission failed');
-        }
-      } catch (error) {
-        btn.textContent = 'Submission Failed';
-        console.error('Error:', error);
-      } finally {
-        setTimeout(() => {
-          btn.textContent = 'Send Message →';
-          btn.disabled = false;
-          status.style.display = 'none';
-        }, 5000);
-      }
-    });
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contact-form', formId: 'xdapqvjo' });
   </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 
