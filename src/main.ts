@@ -4,6 +4,35 @@
 
 import './style.css';
 
+// ── Theme Switcher ────────────────────────────────────────────
+const THEME_COUNT = 6;
+const THEME_KEY = 'ob-theme';
+
+function applyTheme(index: number) {
+  document.documentElement.setAttribute('data-theme', String(index));
+  localStorage.setItem(THEME_KEY, String(index));
+}
+
+// Restore persisted theme on every page load
+const savedTheme = parseInt(localStorage.getItem(THEME_KEY) ?? '0', 10);
+applyTheme(isNaN(savedTheme) ? 0 : Math.min(savedTheme, THEME_COUNT - 1));
+
+// Wire up the dot (only present on index.html)
+const dot = document.getElementById('theme-dot');
+if (dot) {
+  dot.addEventListener('click', () => {
+    const current = parseInt(document.documentElement.getAttribute('data-theme') ?? '0', 10);
+    applyTheme((current + 1) % THEME_COUNT);
+  });
+  dot.addEventListener('keydown', (e: Event) => {
+    const ke = e as KeyboardEvent;
+    if (ke.key === 'Enter' || ke.key === ' ') {
+      ke.preventDefault();
+      dot.click();
+    }
+  });
+}
+
 // ── Nav scroll state ─────────────────────────────────────────
 const nav = document.querySelector('.nav') as HTMLElement | null;
 if (nav) {

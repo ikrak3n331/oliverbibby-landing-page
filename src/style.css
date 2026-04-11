@@ -25,6 +25,7 @@
   --border: #e1e4e8; 
   --accent: #00152a;
   --accent-fg: #ffffff;
+  --highlight: #0066FF;
   --radius-sm: 0.125rem;
   --radius-md: 0.25rem;
   --radius-lg: 0.5rem;
@@ -36,6 +37,109 @@
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ── Theme 1: Ink & Ivory — warm white, terracotta highlight ── */
+[data-theme="1"] {
+  --bg: #faf8f5;
+  --surface: #faf8f5;
+  --surface-container-low: #f2ede6;
+  --surface-container-highest: #e3d8cc;
+  --inverse-surface: #1a1209;
+  --text: #3d3530;
+  --text-muted: #5a504a;
+  --placeholder: #e3d8cc;
+  --placeholder-dark: #c9b9a8;
+  --border: #e0d9d1;
+  --accent: #1a1209;
+  --accent-fg: #faf8f5;
+  --highlight: #C94F3A;
+}
+
+/* ── Theme 2: Slate & Sage — pale green-white, sage highlight ── */
+[data-theme="2"] {
+  --bg: #f4f6f4;
+  --surface: #f4f6f4;
+  --surface-container-low: #e8ede8;
+  --surface-container-highest: #d0ddd0;
+  --inverse-surface: #1b2a1e;
+  --text: #3b4a3e;
+  --text-muted: #546057;
+  --placeholder: #d0ddd0;
+  --placeholder-dark: #a8c0ac;
+  --border: #dce5dc;
+  --accent: #1b2a1e;
+  --accent-fg: #f4f6f4;
+  --highlight: #3D9970;
+}
+
+/* ── Theme 3: Dusk — dark charcoal, periwinkle highlight ── */
+[data-theme="3"] {
+  --bg: #0f1117;
+  --surface: #161b26;
+  --surface-container-low: #1e2535;
+  --surface-container-highest: #2a3347;
+  --inverse-surface: #e8eaf6;
+  --text: #b0b5cc;
+  --text-muted: #8a90a8;
+  --placeholder: #2a3347;
+  --placeholder-dark: #3a4560;
+  --border: #262d40;
+  --accent: #e8eaf6;
+  --accent-fg: #0f1117;
+  --highlight: #7c83fd;
+}
+
+/* ── Theme 4: Midnight Navy — deep navy, sky blue highlight ── */
+[data-theme="4"] {
+  --bg: #0a0e1a;
+  --surface: #111624;
+  --surface-container-low: #181f30;
+  --surface-container-highest: #232c40;
+  --inverse-surface: #dde3f0;
+  --text: #8a91a8;
+  --text-muted: #6a728a;
+  --placeholder: #232c40;
+  --placeholder-dark: #2e3a55;
+  --border: #1c2438;
+  --accent: #dde3f0;
+  --accent-fg: #0a0e1a;
+  --highlight: #38BDF8;
+}
+
+/* ── Theme 5: Carbon — near-black, warm gold highlight ── */
+[data-theme="5"] {
+  --bg: #111111;
+  --surface: #1a1a1a;
+  --surface-container-low: #222222;
+  --surface-container-highest: #2e2e2e;
+  --inverse-surface: #f0f0ee;
+  --text: #909090;
+  --text-muted: #707070;
+  --placeholder: #2e2e2e;
+  --placeholder-dark: #3a3a3a;
+  --border: #242424;
+  --accent: #f0f0ee;
+  --accent-fg: #111111;
+  --highlight: #E8C547;
+}
+
+/* ── Clickable Theme Dot ── */
+.theme-dot {
+  color: var(--highlight);
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s ease, color var(--transition);
+  display: inline-block;
+  line-height: 1;
+}
+
+.theme-dot:hover {
+  transform: scale(1.5);
+}
+
+.theme-dot:active {
+  transform: scale(0.85);
+}
+
 /* ── Base ── */
 html { scroll-behavior: smooth; }
 
@@ -45,6 +149,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 a { color: inherit; text-decoration: none; transition: text-decoration-color var(--transition), color var(--transition); }
@@ -75,7 +180,7 @@ ul { list-style: none; }
   height: var(--nav-h);
   display: flex;
   align-items: center;
-  background: rgba(250, 248, 255, 0.80);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
