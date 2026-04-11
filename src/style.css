@@ -37,42 +37,8 @@
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── Theme 1: Ink & Ivory — warm white, terracotta highlight ── */
+/* ── Theme 1: Dusk — dark charcoal, periwinkle highlight ── */
 [data-theme="1"] {
-  --bg: #faf8f5;
-  --surface: #faf8f5;
-  --surface-container-low: #f2ede6;
-  --surface-container-highest: #e3d8cc;
-  --inverse-surface: #1a1209;
-  --text: #3d3530;
-  --text-muted: #5a504a;
-  --placeholder: #e3d8cc;
-  --placeholder-dark: #c9b9a8;
-  --border: #e0d9d1;
-  --accent: #1a1209;
-  --accent-fg: #faf8f5;
-  --highlight: #C94F3A;
-}
-
-/* ── Theme 2: Slate & Sage — pale green-white, sage highlight ── */
-[data-theme="2"] {
-  --bg: #f4f6f4;
-  --surface: #f4f6f4;
-  --surface-container-low: #e8ede8;
-  --surface-container-highest: #d0ddd0;
-  --inverse-surface: #1b2a1e;
-  --text: #3b4a3e;
-  --text-muted: #546057;
-  --placeholder: #d0ddd0;
-  --placeholder-dark: #a8c0ac;
-  --border: #dce5dc;
-  --accent: #1b2a1e;
-  --accent-fg: #f4f6f4;
-  --highlight: #3D9970;
-}
-
-/* ── Theme 3: Dusk — dark charcoal, periwinkle highlight ── */
-[data-theme="3"] {
   --bg: #0f1117;
   --surface: #161b26;
   --surface-container-low: #1e2535;
@@ -88,8 +54,25 @@
   --highlight: #7c83fd;
 }
 
-/* ── Theme 4: Midnight Navy — deep navy, sky blue highlight ── */
-[data-theme="4"] {
+/* ── Theme 2: Ink & Ivory — warm white, terracotta highlight ── */
+[data-theme="2"] {
+  --bg: #faf8f5;
+  --surface: #faf8f5;
+  --surface-container-low: #f2ede6;
+  --surface-container-highest: #e3d8cc;
+  --inverse-surface: #1a1209;
+  --text: #3d3530;
+  --text-muted: #5a504a;
+  --placeholder: #e3d8cc;
+  --placeholder-dark: #c9b9a8;
+  --border: #e0d9d1;
+  --accent: #1a1209;
+  --accent-fg: #faf8f5;
+  --highlight: #C94F3A;
+}
+
+/* ── Theme 3: Midnight Navy — deep navy, sky blue highlight ── */
+[data-theme="3"] {
   --bg: #0a0e1a;
   --surface: #111624;
   --surface-container-low: #181f30;
@@ -103,6 +86,23 @@
   --accent: #dde3f0;
   --accent-fg: #0a0e1a;
   --highlight: #38BDF8;
+}
+
+/* ── Theme 4: Slate & Sage — pale green-white, sage highlight ── */
+[data-theme="4"] {
+  --bg: #f4f6f4;
+  --surface: #f4f6f4;
+  --surface-container-low: #e8ede8;
+  --surface-container-highest: #d0ddd0;
+  --inverse-surface: #1b2a1e;
+  --text: #3b4a3e;
+  --text-muted: #546057;
+  --placeholder: #d0ddd0;
+  --placeholder-dark: #a8c0ac;
+  --border: #dce5dc;
+  --accent: #1b2a1e;
+  --accent-fg: #f4f6f4;
+  --highlight: #3D9970;
 }
 
 /* ── Theme 5: Carbon — near-black, warm gold highlight ── */
