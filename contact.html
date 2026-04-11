@@ -64,14 +64,14 @@
             <div class="form-group" style="margin-bottom: 0;">
               <label
                 style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Name</label>
-              <input type="text" name="name" placeholder="Name"
-                style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit;" />
+              <input type="text" name="name" id="field-name" placeholder="Name" required
+                style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; transition: border-color 0.2s;" />
             </div>
             <div class="form-group" style="margin-bottom: 0;">
               <label
                 style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Email</label>
-              <input type="email" name="email" placeholder="Email@example.com"
-                style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit;" />
+              <input type="email" name="email" id="field-email" placeholder="Email@example.com" required
+                style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; transition: border-color 0.2s;" />
             </div>
           </div>
           <div style="margin-bottom: 24px;">
@@ -88,12 +88,11 @@
           <div style="margin-bottom: 40px;">
             <label
               style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Message</label>
-            <textarea name="message" placeholder="The message..."
-              style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; min-height: 180px; resize: none;"></textarea>
+            <textarea name="message" id="field-message" placeholder="The message..." required
+              style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; min-height: 180px; resize: none; transition: border-color 0.2s;"></textarea>
           </div>
-          <!-- Error message -->
+          <!-- Validation error message -->
           <p id="form-error" style="display:none; margin-bottom: 16px; font-family: 'Public Sans', sans-serif; font-size: 0.9rem; color: #dc2626; text-align: center;"></p>
-          </div>
           <button type="submit" id="submit-btn" class="btn btn--primary"
             style="width: 100%; padding: 20px; font-size: 0.95rem; letter-spacing: 0.05em;">Send Message →</button>
         </form>
@@ -136,9 +135,46 @@
     const errorEl = document.getElementById('form-error');
     const submitBtn = document.getElementById('submit-btn');
 
+    const fields = [
+      { el: document.getElementById('field-name'),    label: 'Name' },
+      { el: document.getElementById('field-email'),   label: 'Email' },
+      { el: document.getElementById('field-message'), label: 'Message' },
+    ];
+
+    // Clear red border as user types/inputs
+    fields.forEach(({ el }) => {
+      el.addEventListener('input', () => {
+        if (el.value.trim()) el.style.borderColor = '';
+      });
+    });
+
+    function validate() {
+      const empty = fields.filter(({ el }) => !el.value.trim());
+      empty.forEach(({ el }) => el.style.borderColor = '#dc2626');
+      if (empty.length) {
+        const labels = empty.map(f => f.label).join(', ');
+        errorEl.textContent = `Please fill in the following fields: ${labels}.`;
+        errorEl.style.display = 'block';
+        return false;
+      }
+      // Basic email format check
+      const emailEl = document.getElementById('field-email');
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim());
+      if (!emailOk) {
+        emailEl.style.borderColor = '#dc2626';
+        errorEl.textContent = 'Please enter a valid email address.';
+        errorEl.style.display = 'block';
+        return false;
+      }
+      return true;
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       errorEl.style.display = 'none';
+
+      if (!validate()) return;
+
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
 
@@ -170,8 +206,10 @@
 
     function resetForm() {
       form.reset();
+      fields.forEach(({ el }) => el.style.borderColor = '');
       form.style.display = 'block';
       successEl.style.display = 'none';
+      errorEl.style.display = 'none';
       submitBtn.textContent = 'Send Message →';
       submitBtn.disabled = false;
     }
