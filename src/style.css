@@ -612,20 +612,11 @@ font-size: clamp(1.4rem, 2.5vw, 2rem);
   animation: marquee-scroll 42s linear infinite;
 }
 
-.marquee-inner:hover {
-  animation-play-state: paused;
-}
-
 .marquee-logo {
   height: 44px;
   width: auto;
   opacity: 1;
-  transition: opacity var(--transition);
   flex-shrink: 0;
-}
-
-.marquee-logo:hover {
-  opacity: 0.7;
 }
 
 @keyframes marquee-scroll {
