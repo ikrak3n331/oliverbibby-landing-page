@@ -37,25 +37,8 @@
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── Theme 1: Dusk — dark charcoal, periwinkle highlight ── */
+/* ── Theme 1: Ink & Ivory — warm white, terracotta highlight ── */
 [data-theme="1"] {
-  --bg: #0f1117;
-  --surface: #161b26;
-  --surface-container-low: #1e2535;
-  --surface-container-highest: #2a3347;
-  --inverse-surface: #e8eaf6;
-  --text: #b0b5cc;
-  --text-muted: #8a90a8;
-  --placeholder: #2a3347;
-  --placeholder-dark: #3a4560;
-  --border: #262d40;
-  --accent: #e8eaf6;
-  --accent-fg: #0f1117;
-  --highlight: #7c83fd;
-}
-
-/* ── Theme 2: Ink & Ivory — warm white, terracotta highlight ── */
-[data-theme="2"] {
   --bg: #faf8f5;
   --surface: #faf8f5;
   --surface-container-low: #f2ede6;
@@ -71,25 +54,8 @@
   --highlight: #C94F3A;
 }
 
-/* ── Theme 3: Midnight Navy — deep navy, sky blue highlight ── */
-[data-theme="3"] {
-  --bg: #0a0e1a;
-  --surface: #111624;
-  --surface-container-low: #181f30;
-  --surface-container-highest: #232c40;
-  --inverse-surface: #dde3f0;
-  --text: #8a91a8;
-  --text-muted: #6a728a;
-  --placeholder: #232c40;
-  --placeholder-dark: #2e3a55;
-  --border: #1c2438;
-  --accent: #dde3f0;
-  --accent-fg: #0a0e1a;
-  --highlight: #38BDF8;
-}
-
-/* ── Theme 4: Slate & Sage — pale green-white, sage highlight ── */
-[data-theme="4"] {
+/* ── Theme 2: Slate & Sage — pale green-white, sage highlight ── */
+[data-theme="2"] {
   --bg: #f4f6f4;
   --surface: #f4f6f4;
   --surface-container-low: #e8ede8;
@@ -105,21 +71,55 @@
   --highlight: #3D9970;
 }
 
-/* ── Theme 5: Carbon — near-black, warm gold highlight ── */
+/* ── Theme 3: Blush Rose — light warm-pink base, rose highlight ── */
+[data-theme="3"] {
+  --bg: #fdf4f5;
+  --surface: #fdf4f5;
+  --surface-container-low: #f7e6e8;
+  --surface-container-highest: #eecdd1;
+  --inverse-surface: #2a0f14;
+  --text: #3d2528;
+  --text-muted: #6b474b;
+  --placeholder: #eecdd1;
+  --placeholder-dark: #d9a8ae;
+  --border: #f0dde0;
+  --accent: #2a0f14;
+  --accent-fg: #fdf4f5;
+  --highlight: #E05A7A;
+}
+
+/* ── Theme 4: Lavender Mist — light lavender base, violet highlight ── */
+[data-theme="4"] {
+  --bg: #f6f4fe;
+  --surface: #f6f4fe;
+  --surface-container-low: #ede9fd;
+  --surface-container-highest: #dcd5fa;
+  --inverse-surface: #1a1040;
+  --text: #2e2958;
+  --text-muted: #56509a;
+  --placeholder: #dcd5fa;
+  --placeholder-dark: #bbb3f0;
+  --border: #e8e4fc;
+  --accent: #1a1040;
+  --accent-fg: #f6f4fe;
+  --highlight: #7B5CF0;
+}
+
+/* ── Theme 5: Warm Amber — light golden base, amber highlight ── */
 [data-theme="5"] {
-  --bg: #111111;
-  --surface: #1a1a1a;
-  --surface-container-low: #222222;
-  --surface-container-highest: #2e2e2e;
-  --inverse-surface: #f0f0ee;
-  --text: #909090;
-  --text-muted: #707070;
-  --placeholder: #2e2e2e;
-  --placeholder-dark: #3a3a3a;
-  --border: #242424;
-  --accent: #f0f0ee;
-  --accent-fg: #111111;
-  --highlight: #E8C547;
+  --bg: #fdf9f0;
+  --surface: #fdf9f0;
+  --surface-container-low: #f7eddb;
+  --surface-container-highest: #eedad8;
+  --inverse-surface: #281800;
+  --text: #3a2800;
+  --text-muted: #6b5020;
+  --placeholder: #eedad8;
+  --placeholder-dark: #d9c090;
+  --border: #f0e6cc;
+  --accent: #281800;
+  --accent-fg: #fdf9f0;
+  --highlight: #D97706;
 }
 
 /* ── Clickable Theme Dot ── */
