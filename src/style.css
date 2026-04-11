@@ -154,7 +154,7 @@ body {
 
 a { color: inherit; text-decoration: none; transition: text-decoration-color var(--transition), color var(--transition); }
 p a { text-decoration-color: inherit; transition: text-decoration-color var(--transition); }
-p a:hover { text-decoration: underline; text-decoration-color: #0066FF; }
+p a:hover { text-decoration: underline; text-decoration-color: var(--highlight); }
 img, video { display: block; max-width: 100%; }
 ul { list-style: none; }
 
@@ -247,7 +247,7 @@ ul { list-style: none; }
   left: 0;
   right: 0;
   height: 1.5px;
-  background: #0066FF;
+  background: var(--highlight);
   opacity: 0;
   transition: opacity var(--transition);
 }
@@ -969,7 +969,7 @@ font-size: clamp(1.4rem, 2.5vw, 2rem);
   transition: text-decoration-color var(--transition);
 }
 .meta-bar__value a:hover {
-  text-decoration-color: #0066FF;
+  text-decoration-color: var(--highlight);
 }
 
 /* Project intro */
