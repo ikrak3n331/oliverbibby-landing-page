@@ -13,47 +13,49 @@
 
 <body>
 
-  <!-- ── Navigation ── -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo">
-        <img src="/logo.svg" alt="Oliver Logo" style="height: 20px; width: auto;" />
-      </a>
-      <ul class="nav__links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/#work">Case Studies</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-      <div class="nav__right">
-        <button class="nav__hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Drawer -->
-  <div class="nav__drawer">
-    <a href="/">Home</a>
-    <a href="/#work">Case Studies</a>
-    <a href="/contact.html">Contact</a>
+  <!-- Decorative Glowing Background Mesh Blobs -->
+  <div class="mesh-bg">
+    <div class="blob blob--violet"></div>
+    <div class="blob blob--blue"></div>
+    <div class="blob blob--indigo"></div>
   </div>
 
+  <!-- ── Floating Logo ── -->
+  <div class="logo-fixed">
+    <a href="/">
+      <img src="/logo.svg" alt="Oliver Logo" class="logo-img" />
+    </a>
+  </div>
+
+  <!-- ── Navigation (Floating Bottom Pill Dock) ── -->
+  <nav class="nav" id="redesign-nav">
+    <ul class="nav__links">
+      <li><a href="/#about" class="nav-link-item">Home</a></li>
+      <li><a href="/#work" class="nav-link-item">Case Studies</a></li>
+      <li><a href="/contact.html" class="nav-link-item active">Contact</a></li>
+    </ul>
+  </nav>
+
   <!-- ── Contact Content (Centered) ── -->
-  <section class="section" style="padding-top: calc(var(--nav-h) + 80px); padding-bottom: 120px;">
+  <section class="section contact-form-section">
     <div class="container" style="max-width: 800px; text-align: center;">
 
       <!-- Hero -->
-      <div class="fade-up" style="margin-bottom: 64px;">
-        <p class="eyebrow" style="margin-bottom: 16px; color: var(--highlight);">LET'S CHAT</p>
-        <h1 class="h1" style="margin-bottom: 24px; line-height: 1.1;">Get in Contact</h1>
-        <p class="lead" style="margin: 0 auto; max-width: 580px;">I'm always available for a coffee to talk Design
-          Systems, digital strategy or upskilling.</p>
+      <div class="hero__inner" style="margin: 0 auto 64px; text-align: center;">
+        <div class="hero__badge fade-up">
+          <span class="badge-dot"></span>
+          <span class="badge-text">Let's chat</span>
+        </div>
+        <h1 class="hero__headline h1 fade-up delay-1" style="margin-bottom: 24px;">
+          Get in <span class="highlight-text font-serif">Contact</span>.
+        </h1>
+        <p class="hero__sub lead fade-up delay-2" style="margin: 0 auto; max-width: 640px;">
+          I'm always available for a coffee to talk Design Systems, digital strategy or upskilling.
+        </p>
       </div>
 
       <!-- Form Block -->
-      <div id="form-wrap" class="fade-up delay-1"
-        style="background: white; border: 1px solid var(--border); padding: 56px; border-radius: 8px; text-align: left; box-shadow: 0 4px 30px rgba(0,0,0,0.02);">
+      <div id="form-wrap" class="service-card fade-up delay-3">
 
 
         <form id="contact-form">
@@ -62,23 +64,17 @@
 
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
             <div class="form-group" style="margin-bottom: 0;">
-              <label
-                style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Name</label>
-              <input type="text" name="name" id="field-name" placeholder="Name" required
-                style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; transition: border-color 0.2s;" />
+              <label class="form-label">Name</label>
+              <input type="text" name="name" id="field-name" placeholder="Name" required class="form-input" />
             </div>
             <div class="form-group" style="margin-bottom: 0;">
-              <label
-                style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Email</label>
-              <input type="email" name="email" id="field-email" placeholder="Email@example.com" required
-                style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; transition: border-color 0.2s;" />
+              <label class="form-label">Email</label>
+              <input type="email" name="email" id="field-email" placeholder="Email@example.com" required class="form-input" />
             </div>
           </div>
           <div style="margin-bottom: 24px;">
-            <label
-              style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Subject / Nature of Inquiry</label>
-            <select name="subject"
-              style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; background: white; appearance: none;">
+            <label class="form-label">Subject / Nature of Inquiry</label>
+            <select name="subject" class="form-select">
               <option>Systems Strategy</option>
               <option>Institutional Architecture</option>
               <option>Product Governance</option>
@@ -86,23 +82,20 @@
             </select>
           </div>
           <div style="margin-bottom: 40px;">
-            <label
-              style="display: block; font-family: 'Public Sans', sans-serif; font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; color: var(--text-muted);">Message</label>
-            <textarea name="message" id="field-message" placeholder="The message..." required
-              style="width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; min-height: 180px; resize: none; transition: border-color 0.2s;"></textarea>
+            <label class="form-label">Message</label>
+            <textarea name="message" id="field-message" placeholder="The message..." required class="form-textarea"></textarea>
           </div>
           <!-- Validation error message -->
-          <p id="form-error" style="display:none; margin-bottom: 16px; font-family: 'Public Sans', sans-serif; font-size: 0.9rem; color: #dc2626; text-align: center;"></p>
-          <button type="submit" id="submit-btn" class="btn btn--primary"
-            style="width: 100%; padding: 20px; font-size: 0.95rem; letter-spacing: 0.05em;">Send Message →</button>
+          <p id="form-error" style="display:none; margin-bottom: 16px; font-family: var(--font-sans); font-size: 0.95rem; color: #dc2626; text-align: center;"></p>
+          <button type="submit" id="submit-btn" class="btn btn--primary" style="width: 100%; padding: 20px; font-size: 0.95rem; letter-spacing: 0.05em;">Send Message →</button>
         </form>
 
         <!-- Success state -->
         <div id="form-success" style="display:none; text-align: center; padding: 16px 0;">
-          <div style="width: 64px; height: 64px; background: #f0fdf4; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 1.8rem;">✓</div>
-          <h3 style="font-family: 'Public Sans', sans-serif; font-size: 1.4rem; font-weight: 720; color: var(--accent); margin-bottom: 12px;">Message Sent</h3>
-          <p style="font-family: 'Newsreader', serif; font-size: 1.05rem; color: var(--text-muted); line-height: 1.6; max-width: 380px; margin: 0 auto 32px;">Thanks for reaching out — I'll respond to your correspondence shortly.</p>
-          <button onclick="resetForm()" style="font-family: 'Public Sans', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: none; border: none; color: var(--text-muted); cursor: pointer; text-decoration: underline; text-underline-offset: 3px;">Send another message</button>
+          <div class="form-success-icon">✓</div>
+          <h3 style="font-family: var(--font-sans); font-size: 1.4rem; font-weight: 600; color: var(--text-color); margin-bottom: 12px;">Message Sent</h3>
+          <p style="font-family: var(--font-serif); font-size: 1.05rem; color: var(--text-muted); line-height: 1.6; max-width: 380px; margin: 0 auto 32px; font-style: italic;">Thanks for reaching out — I'll respond to your correspondence shortly.</p>
+          <button onclick="resetForm()" style="font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 3px;">Send another message</button>
         </div>
 
       </div>
@@ -117,17 +110,7 @@
     </div>
   </section>
 
-  <!-- ── Footer ── -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__logo">
-          <img src="/logo.svg" alt="Oliver Logo" style="height: 19px; width: auto;" />
-        </div>
-        <p class="footer__copy">© 2026 Oliver Bibby. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+
 
   <script>
     const form = document.getElementById('contact-form');

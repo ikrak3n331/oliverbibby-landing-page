@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -8,307 +8,353 @@
   <meta name="description"
     content="Oliver Bibby is a Design Lead specialising in UX strategy, product design, and design systems. Based in Melbourne, working globally." />
   <link rel="icon" type="image/png" href="/favicon.png" />
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  
+  <!-- Link to the main typescript logic -->
   <script type="module" src="/src/main.ts"></script>
 </head>
 
 <body>
 
-  <!-- ── Navigation ── -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo">
-        <img src="/logo.svg" alt="Oliver Logo" style="height: 20px; width: auto;" />
-      </a>
-      <ul class="nav__links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/#work">Case Studies</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-      <div class="nav__right">
-        <button class="nav__hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Drawer -->
-  <div class="nav__drawer">
-    <a href="/">Home</a>
-    <a href="/#work">Case Studies</a>
-    <a href="/contact.html">Contact</a>
+  <!-- Decorative Glowing Background Mesh Blobs -->
+  <div class="mesh-bg">
+    <div class="blob blob--violet"></div>
+    <div class="blob blob--blue"></div>
+    <div class="blob blob--indigo"></div>
   </div>
 
-  <!-- ── Hero ── -->
-  <section class="hero">
+  <!-- ── Floating Logo ── -->
+  <div class="logo-fixed">
+    <a href="/">
+      <img src="/logo.svg" alt="Oliver Logo" class="logo-img" />
+    </a>
+  </div>
+
+  <!-- ── Navigation (Floating Bottom Pill Dock) ── -->
+  <nav class="nav" id="redesign-nav">
+    <ul class="nav__links">
+      <li><a href="/#about" class="nav-link-item active">Home</a></li>
+      <li><a href="/#work" class="nav-link-item">Case Studies</a></li>
+      <li><a href="/contact.html" class="nav-link-item">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero Section ── -->
+  <section class="hero" id="about">
+    <canvas id="hero-grid-canvas"></canvas>
     <div class="container">
       <div class="hero__inner">
-
-        <div class="fade-up delay-1">
-          <h1 class="h1 hero__headline">Connecting people, services, and business strategy<span id="theme-dot" class="theme-dot" role="button" aria-label="Change colour theme" tabindex="0">.</span></h1>
-          <p class="lead hero__sub">Decades of experience unraveling complex systems to deliver
-            human-centered digital infrastructure at a national scale</p>
+        <h1 class="hero__headline h1 fade-up delay-1">
+          Connecting people, services, and <span class="highlight-text font-serif">business strategy</span>.
+        </h1>
+        <p class="hero__sub lead fade-up delay-2">
+          Decades of experience unraveling complex systems to deliver human-centered digital infrastructure at a national scale.
+        </p>
+        <div class="hero__actions fade-up delay-3">
+          <a href="/#work" class="btn btn--primary" id="view-work-btn">Explore Case Studies</a>
+          <a href="/contact.html" class="btn btn--secondary" id="contact-btn">Let's Connect</a>
         </div>
       </div>
-    </div><!-- End of .container -->
-
-    <!-- ── Logo Marquee ── -->
-    <section class="marquee-section">
-      <p class="eyebrow marquee-section__label">Brands I’ve worked with</p>
-      <div class="marquee-track">
-        <div class="marquee-inner">
-          <!-- Set 1 -->
-          <img src="/nestle.svg" alt="Nestle" class="marquee-logo" style="height: 38px; filter: brightness(0) invert(1);" />
-          <img src="/bupawhite.svg" alt="Bupa" class="marquee-logo" />
-          <img src="/jeep.png" alt="Jeep" class="marquee-logo" style="height: 32px; filter: brightness(0) invert(1);" />
-          <img src="/specsavers.svg" alt="Specsavers" class="marquee-logo" style="height: 35px;" />
-          <img src="/officeworks.svg" alt="Officeworks" class="marquee-logo" style="height: 31px;" />
-          <img src="/target.svg" alt="Target" class="marquee-logo" style="height: 40px;" />
-          <img src="/alfaromeo.svg" alt="Alfa Romeo" class="marquee-logo" style="height: 48px;" />
-          <img src="/logoao.png" alt="AO" class="marquee-logo" style="height: 34px; filter: brightness(0) invert(1);" />
-          <img src="/telstra.png" alt="Telstra" class="marquee-logo" style="height: 38px; filter: brightness(0) invert(1);" />
-
-          <!-- Set 2 (duplicate for seamless loop) -->
-          <img src="/nestle.svg" alt="Nestle" class="marquee-logo" style="height: 38px; filter: brightness(0) invert(1);" />
-          <img src="/bupawhite.svg" alt="Bupa" class="marquee-logo" />
-          <img src="/jeep.png" alt="Jeep" class="marquee-logo" style="height: 32px; filter: brightness(0) invert(1);" />
-          <img src="/specsavers.svg" alt="Specsavers" class="marquee-logo" style="height: 35px;" />
-          <img src="/officeworks.svg" alt="Officeworks" class="marquee-logo" style="height: 31px;" />
-          <img src="/target.svg" alt="Target" class="marquee-logo" style="height: 40px;" />
-          <img src="/alfaromeo.svg" alt="Alfa Romeo" class="marquee-logo" style="height: 48px;" />
-          <img src="/logoao.png" alt="AO" class="marquee-logo" style="height: 34px; filter: brightness(0) invert(1);" />
-          <img src="/telstra.png" alt="Telstra" class="marquee-logo" style="height: 38px; filter: brightness(0) invert(1);" />
-        </div>
-      </div>
-    </section>
+    </div>
   </section>
 
-
-  <!-- ── Strategic Impact ── -->
-  <section class="section" id="services">
+  <!-- ── Logo Marquee ── -->
+  <section class="marquee-section">
     <div class="container">
-      <div class="services__header fade-up" style="display: flex; align-items: center; justify-content: space-between;">
-        <h2 class="h2">Key Focus Areas</h2>
-        <p class="lead" style="max-width:416px; text-align: right; margin-left: auto;">Creating human-centric,
-          accessible, responsive and connected systems are my passion.</p>
+      <p class="marquee-section__label fade-up">Trusted by leading organisations globally</p>
+    </div>
+    <div class="marquee-track">
+      <div class="marquee-inner">
+        <!-- Set 1 -->
+        <img src="/nestle.svg" alt="Nestle" class="marquee-logo" />
+        <img src="/bupawhite.svg" alt="Bupa" class="marquee-logo" />
+        <img src="/jeep.png" alt="Jeep" class="marquee-logo" />
+        <img src="/specsavers.svg" alt="Specsavers" class="marquee-logo" />
+        <img src="/officeworks.svg" alt="Officeworks" class="marquee-logo" />
+        <img src="/target.svg" alt="Target" class="marquee-logo" />
+        <img src="/alfaromeo.svg" alt="Alfa Romeo" class="marquee-logo" />
+        <img src="/logoao.png" alt="AO" class="marquee-logo" />
+        <img src="/telstra.png" alt="Telstra" class="marquee-logo" />
+
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <img src="/nestle.svg" alt="Nestle" class="marquee-logo" />
+        <img src="/bupawhite.svg" alt="Bupa" class="marquee-logo" />
+        <img src="/jeep.png" alt="Jeep" class="marquee-logo" />
+        <img src="/specsavers.svg" alt="Specsavers" class="marquee-logo" />
+        <img src="/officeworks.svg" alt="Officeworks" class="marquee-logo" />
+        <img src="/target.svg" alt="Target" class="marquee-logo" />
+        <img src="/alfaromeo.svg" alt="Alfa Romeo" class="marquee-logo" />
+        <img src="/logoao.png" alt="AO" class="marquee-logo" />
+        <img src="/telstra.png" alt="Telstra" class="marquee-logo" />
       </div>
-      <div class="services__grid">
+    </div>
+  </section>
+
+  <!-- ── Key Focus Areas (Services) ── -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <span class="section-tag font-serif">Areas of Expertise</span>
+          <h2 class="h2 section-title">Architecting systems that scale</h2>
+        </div>
+        <p class="lead section-desc">
+          Building digital infrastructure that bridges the gap between complex engineering, beautiful interface design, and real-world business objectives.
+        </p>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Card 1 -->
         <div class="service-card fade-up">
-          <div class="service-card__icon" style="width:42px; height:42px; margin-bottom:20px;">
-            <img src="/focus01.svg" alt="People" style="width:100%; height:100%; object-fit:contain;" />
+          <div class="service-card__icon-wrap">
+            <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
           </div>
-          <h3 class="h4" style="margin-bottom:8px;">Collaboration</h3>
-          <p class="service-card__desc">Working closely with users, stakeholders, and build teams to understand needs,
-            shape solutions, and ensure systems are intuitive, desirable and effective.</p>
-        </div>
-        <div class="service-card fade-up delay-1">
-          <div class="service-card__icon" style="width:42px; height:42px; margin-bottom:20px;">
-            <img src="/focus02.svg" alt="Frameworks" style="width:100%; height:100%; object-fit:contain;" />
-          </div>
-          <h3 class="h4" style="margin-bottom:8px;">Frameworks</h3>
-          <p class="service-card__desc">Accelerated developement, improved accessibility and new levels of quality can
-            be achieved thorough building foundational frameworks that scale.</p>
-        </div>
-        <div class="service-card fade-up delay-2">
-          <div class="service-card__icon" style="width:42px; height:42px; margin-bottom:20px;">
-            <img src="/focus03.svg" alt="Services" style="width:100%; height:100%; object-fit:contain;" />
-          </div>
-          <h3 class="h4" style="margin-bottom:8px;">Services</h3>
-          <p class="service-card__desc">Designing and delivering scalable, user-centred systems that connect services,
-            streamline processes, and improve the experience for all users internally and externally.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Selected Case Studies ── -->
-  <section class="section" id="work">
-    <div class="container">
-      <div class="work__header fade-up"
-        style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px;">
-        <h2 class="h2">Selected Case Studies</h2>
-        <a href="/#work" class="btn"
-          style="border: none; font-family: 'Public Sans', sans-serif; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; color: var(--accent); padding: 0;">VIEW
-          ALL PROJECTS</a>
-      </div>
-      <div class="bento-container" style="display:flex; flex-direction:column; gap:48px;">
-
-        <!-- Top Row -->
-        <div class="bento-top" style="display:grid; grid-template-columns: 1fr; gap:32px;">
-          <!-- Large Card -->
-          <a href="/work/ripple-system.html" class="work-card fade-up">
-            <div class="work-card__image" style="height: 400px; border-radius: 8px; overflow: hidden;">
-              <img src="/work/ripple/ripple1.jpg" alt="Ripple Extended Design System"
-                style="width: 100%; height: 100%; object-fit: cover;" />
-            </div>
-            <div class="work-card__meta"
-              style="margin-top:24px; flex-direction:column; align-items:flex-start; gap: 8px;">
-              <span class="work-card__tag" style="background:#00152a; color:#fff; border-radius:4px;">CASE STUDY</span>
-              <span class="work-card__title" style="font-size: 1.8rem; margin-top:4px;">Ripple Extended Design
-                System</span>
-              <p class="work-card__desc">A comprehensive, refreshed and redesigned new Design System for the Department of Education.</p>
-            </div>
-          </a>
-
-          <!-- Stacked Cards -->
-          <div class="bento-stack fade-up delay-1" style="display:flex; flex-direction:column; gap:32px;">
-            <a href="/work/connected-experience.html" class="work-card">
-              <div class="work-card__image" style="height: 200px; border-radius: 8px; overflow: hidden;">
-                <img src="/work/connected/Connected-Experience-1-Department-of-Education.jpg" alt="The Connected Experience"
-                  style="width: 100%; height: 100%; object-fit: cover;" />
-              </div>
-              <div class="work-card__meta"
-                style="margin-top:16px; flex-direction:column; align-items:flex-start; gap:4px;">
-                <span class="work-card__eyebrow">STRATEGY</span>
-                <span class="work-card__title">The Connected Experience</span>
-              </div>
-            </a>
-            <a href="/work/student-travel.html" class="work-card">
-            <div class="work-card__image" style="height: 200px; border-radius: 8px; overflow: hidden;">
-              <img src="/work/sts/sts1.jpg" alt="Student Travel System"
-                style="width: 100%; height: 100%; object-fit: cover;" />
-            </div>
-              <div class="work-card__meta"
-                style="margin-top:16px; flex-direction:column; align-items:flex-start; gap:4px;">
-                <span class="work-card__eyebrow">TRAVEL</span>
-                <span class="work-card__title">Student Travel System</span>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Bottom Row -->
-        <div class="bento-bottom" style="display:grid; grid-template-columns: 1fr; gap:32px;">
-          <!-- Card 3 -->
-          <a href="/work/work-based-learning.html" class="work-card fade-up delay-2">
-            <div class="work-card__image" style="height: 280px; border-radius: 8px; overflow: hidden;">
-              <img src="/work/wbl/wbl01.jpg" alt="Work-based Learning"
-                style="width: 100%; height: 100%; object-fit: cover;" />
-            </div>
-            <div class="work-card__meta"
-              style="margin-top:16px; flex-direction:column; align-items:flex-start; gap:4px;">
-              <span class="work-card__eyebrow">EDUCATION</span>
-              <span class="work-card__title">Work-based Learning</span>
-            </div>
-          </a>
-
-          <!-- Card 4 -->
-          <a href="/work/target-microsite.html" class="work-card fade-up delay-3">
-            <div class="work-card__image" style="height: 280px; border-radius: 8px; overflow: hidden;">
-              <img src="/brands.png" alt="Target, Bupa and Officeworks"
-                style="width: 100%; height: 100%; object-fit: cover;" />
-            </div>
-            <div class="work-card__meta"
-              style="margin-top:16px; flex-direction:column; align-items:flex-start; gap:4px;">
-              <span class="work-card__eyebrow">ENVIRONMENT</span>
-              <span class="work-card__title">Target Sustainability Microsite</span>
-            </div>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Philosophical Blueprint ── 
-  <section class="section" id="about">
-    <div class="container">
-      <div class="blueprint fade-up" style="display: grid; gap: 64px;">
-        <div style="display: flex; flex-direction: column; gap: 32px;">
-          <h2 class="h3" style="margin-bottom: 16px;">Philosophical<br>Blueprint</h2>
-
-          <div class="blueprint-item" style="border-left: 2px solid #0066FF; padding-left: 20px;">
-            <h4 style="font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 8px;">INTEGRITY</h4>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Unwavering commitment to truth in design, ensuring
-              systems reflect honest human needs.</p>
-          </div>
-
-          <div class="blueprint-item" style="border-left: 2px solid #0066FF; padding-left: 20px;">
-            <h4 style="font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 8px;">RESPECT</h4>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Designing systems that honor the dignity and time
-              of every single user and ecosystem.</p>
-          </div>
-
-          <div class="blueprint-item" style="border-left: 2px solid #0066FF; padding-left: 20px;">
-            <h4 style="font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 8px;">LEADERSHIP</h4>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Pioneering transformational infrastructure with
-              calm, guided authority.</p>
-          </div>
-        </div>
-
-        <div style="display: flex; align-items: center;">
-          <blockquote
-            style="font-family: 'Newsreader', 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.3; color: var(--accent); font-style: italic; max-width: 800px; margin: 0;">
-            "The role of the Diplomat is not just to negotiate, but to architect the very spaces where consensus is
-            built. In design, this means creating systems that are as resilient as they are humane."
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </section>-->
-
-  <!-- ── Testimonials ── 
-  <section class="section">
-    <div class="container">
-      <div class="fade-up" style="margin-bottom:48px;">
-        <p class="eyebrow" style="margin-bottom:12px;">Kind Words</p>
-        <h2 class="h2">What people say.</h2>
-      </div>
-      <div class="testimonials__grid">
-        <div class="testimonial-card fade-up">
-          <p class="testimonial-card__quote">"Oliver brought a rare combination of strategic thinking and craft to our
-            product team. He reshaped how we approach design from the ground up — and the results spoke for themselves."
+          <h3 class="h3 service-card__title">Collaboration</h3>
+          <p class="service-card__desc">
+            Bringing together users, executive stakeholders, and engineering teams to co-design systems that are intuitive, accessible, and high-performing.
           </p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar"></div>
-            <div>
-              <div class="testimonial-card__name">Sarah Mitchell</div>
-              <div class="testimonial-card__role">VP Product, Spotify Australia</div>
-            </div>
+          <div class="service-card__footer">
+            <span class="service-card__pill">Workshops</span>
+            <span class="service-card__pill">User Research</span>
           </div>
         </div>
-        <div class="testimonial-card fade-up delay-1">
-          <p class="testimonial-card__quote">"The design system Oliver built for us has scaled across four product lines
-            with zero drift. It's the best investment we've made in our design practice."</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar"></div>
-            <div>
-              <div class="testimonial-card__name">James Chen</div>
-              <div class="testimonial-card__role">Head of Digital, Telstra</div>
-            </div>
+
+        <!-- Card 2 -->
+        <div class="service-card fade-up delay-1">
+          <div class="service-card__icon-wrap">
+            <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </div>
+          <h3 class="h3 service-card__title">Frameworks</h3>
+          <p class="service-card__desc">
+            Defining robust design systems, component libraries, and guidelines that align design and development cycles for ultimate consistency.
+          </p>
+          <div class="service-card__footer">
+            <span class="service-card__pill">Design Systems</span>
+            <span class="service-card__pill">Figma Library</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>-->
 
-  <!-- ── CTA ── -->
-  <section class="section cta-section" style="padding-top: 24px;">
-    <div class="container fade-up">
-      <div
-        style="background: linear-gradient(180deg, #00152a 0%, #000810 100%); padding: 80px 40px; border-radius: 12px; text-align: center; color: white;">
-        <h2 class="h2" style="color: white; margin-bottom: 24px;">Want to chat?</h2>
-        <p style="color: #c0c6d5; max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.6;">From
-          complex systems governance to leading impactful product initiatives, I'm always available for a coffee.</p>
-        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="/contact.html" class="btn cta-btn">Get in Touch</a>
-
+        <!-- Card 3 -->
+        <div class="service-card fade-up delay-2">
+          <div class="service-card__icon-wrap">
+            <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1.08-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1.08 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          <h3 class="h3 service-card__title">Services</h3>
+          <p class="service-card__desc">
+            Mapping service workflows and data layers to optimize transactions, lower operational cost, and improve overall customer journeys.
+          </p>
+          <div class="service-card__footer">
+            <span class="service-card__pill">Service Design</span>
+            <span class="service-card__pill">UX Strategy</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Footer ── -->
-  <footer class="footer">
+  <!-- ── Selected Case Studies (Bento Grid) ── -->
+  <section class="section work-section" id="work">
     <div class="container">
-      <div class="footer__inner">
-        <div class="footer__logo">
-          <img src="/logo.svg" alt="Oliver Logo" style="height: 19px; width: auto;" />
+      <div class="section-header fade-up">
+        <div>
+          <span class="section-tag font-serif">Selected Works</span>
+          <h2 class="h2 section-title">Real problems, solved at scale</h2>
         </div>
-        <p class="footer__copy">© 2026 Oliver Bibby. All rights reserved.</p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Card 1 -->
+        <a href="/work/ripple-system.html" class="bento-card bento-card--col4 fade-up" id="work-ripple">
+          <div class="bento-card__bg-glow"></div>
+          <div class="bento-card__image-container">
+            <img src="/work/ripple/ripple1.jpg" alt="Ripple Extended Design System" class="bento-card__img" />
+          </div>
+          <div class="bento-card__content">
+            <div class="bento-card__meta">
+              <span class="bento-card__tag">Case Study</span>
+              <span class="bento-card__year">2025</span>
+            </div>
+            <h3 class="h3 bento-card__title">Ripple Extended Design System</h3>
+            <p class="bento-card__desc">
+              A comprehensive visual language and digital infrastructure built for the Victorian Department of Education, scaling to hundreds of websites.
+            </p>
+            <span class="bento-card__arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="/work/connected-experience.html" class="bento-card bento-card--col4 fade-up delay-1" id="work-connected">
+          <div class="bento-card__bg-glow"></div>
+          <div class="bento-card__image-container">
+            <img src="/work/connected/Connected-Experience-1-Department-of-Education.jpg" alt="The Connected Experience" class="bento-card__img" />
+          </div>
+          <div class="bento-card__content">
+            <div class="bento-card__meta">
+              <span class="bento-card__tag">UX Strategy</span>
+              <span class="bento-card__year">2024</span>
+            </div>
+            <h3 class="h3 bento-card__title">The Connected Experience</h3>
+            <p class="bento-card__desc">Reimagining digital journeys for millions of citizens.</p>
+            <span class="bento-card__arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="/work/student-travel.html" class="bento-card bento-card--col4 fade-up delay-2" id="work-student">
+          <div class="bento-card__bg-glow"></div>
+          <div class="bento-card__image-container">
+            <img src="/work/sts/sts1.jpg" alt="Student Travel System" class="bento-card__img" />
+          </div>
+          <div class="bento-card__content">
+            <div class="bento-card__meta">
+              <span class="bento-card__tag">Service Design</span>
+              <span class="bento-card__year">2024</span>
+            </div>
+            <h3 class="h3 bento-card__title">Student Travel System</h3>
+            <p class="bento-card__desc">Streamlining transit application infrastructure for student services.</p>
+            <span class="bento-card__arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="/work/work-based-learning.html" class="bento-card bento-card--col6 fade-up delay-1" id="work-wbl">
+          <div class="bento-card__bg-glow"></div>
+          <div class="bento-card__image-container">
+            <img src="/work/wbl/wbl01.jpg" alt="Work-based Learning" class="bento-card__img" />
+          </div>
+          <div class="bento-card__content">
+            <div class="bento-card__meta">
+              <span class="bento-card__tag">Education</span>
+              <span class="bento-card__year">2023</span>
+            </div>
+            <h3 class="h3 bento-card__title">Work-based Learning</h3>
+            <span class="bento-card__arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="/work/target-microsite.html" class="bento-card bento-card--col6 fade-up delay-2" id="work-target">
+          <div class="bento-card__bg-glow"></div>
+          <div class="bento-card__image-container">
+            <img src="/brands.png" alt="Target Sustainability Microsite" class="bento-card__img" />
+          </div>
+          <div class="bento-card__content">
+            <div class="bento-card__meta">
+              <span class="bento-card__tag">Campaign</span>
+              <span class="bento-card__year">2023</span>
+            </div>
+            <h3 class="h3 bento-card__title">Target Sustainability</h3>
+            <span class="bento-card__arrow">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </a>
       </div>
     </div>
-  </footer>
+  </section>
+
+  <!-- ── Philosophical Blueprint ── -->
+  <section class="section blueprint-section">
+    <div class="container">
+      <div class="blueprint-grid">
+        <div class="blueprint-info fade-up">
+          <span class="section-tag font-serif">Philosophy</span>
+          <h2 class="h2 section-title">Design with principles</h2>
+          <p class="blueprint-lead">
+            Great systems aren't just built; they are nurtured. My philosophy centers on creating structures that remain useful and respectful over decades.
+          </p>
+          
+          <div class="blueprint-list">
+            <div class="blueprint-item">
+              <span class="blueprint-num">01</span>
+              <div>
+                <h4 class="blueprint-item-title">Integrity in Action</h4>
+                <p class="blueprint-item-desc">Designing systems that present truth, respect data, and empower direct human choice.</p>
+              </div>
+            </div>
+            <div class="blueprint-item">
+              <span class="blueprint-num">02</span>
+              <div>
+                <h4 class="blueprint-item-title">Quiet Authority</h4>
+                <p class="blueprint-item-desc">Using calm, intuitive visual flows that guide without demanding excessive user attention.</p>
+              </div>
+            </div>
+            <div class="blueprint-item">
+              <span class="blueprint-num">03</span>
+              <div>
+                <h4 class="blueprint-item-title">Scalable Infrastructure</h4>
+                <p class="blueprint-item-desc">Designing every component with its future growth and developer integration in mind.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="blueprint-quote-wrap fade-up delay-1">
+          <div class="quote-card">
+            <span class="quote-mark">“</span>
+            <blockquote class="blueprint-quote font-serif">
+              The role of a design leader is not just to negotiate challenges, but to architect collaborative spaces where organisational consensus is reached. <br><br>In systems design, this means crafting frameworks and guidelines that are as humanly resilient as they are technically sound.
+            </blockquote>
+            <cite class="quote-author">— Oliver Bibby</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Section ── -->
+  <section class="section cta-section">
+    <div class="container fade-up">
+      <div class="cta-card-wrapper">
+        <div class="cta-glow"></div>
+        <div class="cta-card">
+          <h2 class="h2 cta-card__title">Have a complex system challenge?</h2>
+          <p class="cta-card__desc">
+            Whether you are launching a global design system, restructuring product architectures, or looking for strategic leadership, let's start a conversation.
+          </p>
+          <div class="cta-card__actions">
+            <a href="/contact.html" class="btn btn--primary" id="cta-contact-btn">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 
 </body>
 

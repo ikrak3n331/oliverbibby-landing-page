@@ -12,40 +12,42 @@
 
 <body>
 
-  <!-- ── Navigation ── -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo">
-        <img src="/logo.svg" alt="Oliver Logo" style="height: 20px; width: auto;" />
-      </a>
-      <ul class="nav__links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/#work">Case Studies</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-      <div class="nav__right">
-        <button class="nav__hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Drawer -->
-  <div class="nav__drawer">
-    <a href="/">Home</a>
-    <a href="/#work">Case Studies</a>
-    <a href="/contact.html">Contact</a>
+  <!-- Decorative Glowing Background Mesh Blobs -->
+  <div class="mesh-bg">
+    <div class="blob blob--violet"></div>
+    <div class="blob blob--blue"></div>
+    <div class="blob blob--indigo"></div>
   </div>
 
+  <!-- ── Floating Logo ── -->
+  <div class="logo-fixed">
+    <a href="/">
+      <img src="/logo.svg" alt="Oliver Logo" class="logo-img" />
+    </a>
+  </div>
+
+  <!-- ── Navigation (Floating Bottom Pill Dock) ── -->
+  <nav class="nav" id="redesign-nav">
+    <ul class="nav__links">
+      <li><a href="/#about" class="nav-link-item">Home</a></li>
+      <li><a href="/#work" class="nav-link-item active">Case Studies</a></li>
+      <li><a href="/contact.html" class="nav-link-item">Contact</a></li>
+    </ul>
+  </nav>
+
   <!-- ── Project Hero ── -->
-  <section class="section" style="padding-top: calc(var(--nav-h) + 60px); padding-bottom: 40px;">
+  <section class="section" style="padding-top: calc(var(--nav-height) + 60px); padding-bottom: 40px;">
     <div class="container">
-      <div class="fade-up">
-        <p class="eyebrow" style="margin-bottom: 12px; color: var(--highlight);">ENVIRONMENT</p>
-        <h1 class="h1" style="margin-bottom: 32px;">Target Sustainability Microsite</h1>
+      <div class="hero__inner" style="margin-bottom: 48px;">
+        <div class="hero__badge fade-up" style="margin-bottom: 16px;">
+          <span class="badge-dot"></span>
+          <span class="badge-text">Environment</span>
+        </div>
+        <h1 class="hero__headline h1 fade-up delay-1" style="margin-bottom: 0;">
+          Target <span class="highlight-text font-serif">Sustainability</span>.
+        </h1>
       </div>
-      <div class="fade-up delay-1" style="overflow: hidden; border-radius: 8px;">
+      <div class="fade-up delay-2" style="overflow: hidden; border-radius: 20px; border: 1px solid var(--card-border); box-shadow: 0 10px 35px rgba(0,0,0,0.3);">
         <img src="/work/comp/1.jpg" alt="Target Sustainability Hero"
           style="width: 100%; height: auto; display: block;" />
       </div>
@@ -54,31 +56,27 @@
 
   <!-- ── Metadata Bar ── -->
   <section
-    style="padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: white;">
+    style="padding: 28px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(255, 255, 255, 0.08); background: rgba(17, 24, 39, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
     <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 32px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 32px; text-align: left;">
         <div>
-          <p class="eyebrow" style="font-size: 0.65rem; margin-bottom: 8px;">BRAND</p>
-          <p
-            style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--accent);">
+          <p class="form-label" style="font-size: 0.7rem; margin-bottom: 6px;">Brand</p>
+          <p style="font-family: var(--font-sans); font-weight: 500; font-size: 1rem; color: var(--text-color);">
             Target Australia</p>
         </div>
         <div>
-          <p class="eyebrow" style="font-size: 0.65rem; margin-bottom: 8px;">ROLE</p>
-          <p
-            style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--accent);">
+          <p class="form-label" style="font-size: 0.7rem; margin-bottom: 6px;">Role</p>
+          <p style="font-family: var(--font-sans); font-weight: 500; font-size: 1rem; color: var(--text-color);">
             Digital Design Lead</p>
         </div>
         <div>
-          <p class="eyebrow" style="font-size: 0.65rem; margin-bottom: 8px;">TIMELINE</p>
-          <p
-            style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--accent);">
+          <p class="form-label" style="font-size: 0.7rem; margin-bottom: 6px;">Timeline</p>
+          <p style="font-family: var(--font-sans); font-weight: 500; font-size: 1rem; color: var(--text-color);">
             2023</p>
         </div>
         <div>
-          <p class="eyebrow" style="font-size: 0.65rem; margin-bottom: 8px;">SERVICES</p>
-          <p
-            style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--accent);">
+          <p class="form-label" style="font-size: 0.7rem; margin-bottom: 6px;">Services</p>
+          <p style="font-family: var(--font-sans); font-weight: 500; font-size: 1rem; color: var(--accent);">
             UX / UI / Strategy</p>
         </div>
       </div>
@@ -123,66 +121,59 @@
             <br><br>
             As part of the microsite build I applied new, more modern colours, font styles and layouts. These were
             aligned to the newly launched brand guidelines. I then developed a Design System in Figma that applied
-            these new Design Priciples that were previously only defined in PDF format.
-
-
-
-
-          </p>
-
-          <!-- ── Process Diagram ── -->
+            these new Design Priciples that were previously only defined           <!-- ── Process Diagram ── -->
           <div
-            style="background: #edf1fd; border-radius: 12px; padding: 40px 48px; margin: 48px 0; display: flex; flex-direction: column; gap: 32px;">
+            style="background: rgba(17, 24, 39, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 40px 48px; margin: 48px 0; display: flex; flex-direction: column; gap: 32px;">
 
             <div>
               <p
-                style="font-family: 'Public Sans', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--highlight); margin-bottom: 16px;">
+                style="font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--highlight); margin-bottom: 16px;">
                 Planning</p>
               <div style="display: flex; flex-wrap: wrap; gap: 10px;">
                 <span
-                  style="font-family: 'Public Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #ffffff; color: #00152a; padding: 10px 20px; border-radius: 6px; border: 1px solid #dde3ee;">User
+                  style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255, 255, 255, 0.03); color: var(--text-color); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.08);">User
                   Interviews</span>
                 <span
-                  style="font-family: 'Public Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #ffffff; color: #00152a; padding: 10px 20px; border-radius: 6px; border: 1px solid #dde3ee;">Data
+                  style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255, 255, 255, 0.03); color: var(--text-color); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.08);">Data
                   Analysis</span>
                 <span
-                  style="font-family: 'Public Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #ffffff; color: #00152a; padding: 10px 20px; border-radius: 6px; border: 1px solid #dde3ee;">Client
+                  style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255, 255, 255, 0.03); color: var(--text-color); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.08);">Client
                   Workshops</span>
                 <span
-                  style="font-family: 'Public Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #ffffff; color: #00152a; padding: 10px 20px; border-radius: 6px; border: 1px solid #dde3ee;">Competitor
+                  style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255, 255, 255, 0.03); color: var(--text-color); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.08);">Competitor
                   Analysis</span>
               </div>
             </div>
 
-            <div style="border-top: 1px solid #dde3ee; padding-top: 32px;">
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 32px;">
               <p
-                style="font-family: 'Public Sans', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--highlight); margin-bottom: 16px;">
+                style="font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--highlight); margin-bottom: 16px;">
                 Design</p>
               <div style="display: flex; flex-wrap: wrap; gap: 10px;">
                 <span
-                  style="font-family: 'Public Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #ffffff; color: #00152a; padding: 10px 20px; border-radius: 6px; border: 1px solid #dde3ee;">Personas</span>
+                  style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255, 255, 255, 0.03); color: var(--text-color); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.08);">Personas</span>
                 <span
-                  style="font-family: 'Public Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #ffffff; color: #00152a; padding: 10px 20px; border-radius: 6px; border: 1px solid #dde3ee;">User
+                  style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255, 255, 255, 0.03); color: var(--text-color); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.08);">User
                   Journeys</span>
                 <span
-                  style="font-family: 'Public Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #ffffff; color: #00152a; padding: 10px 20px; border-radius: 6px; border: 1px solid #dde3ee;">Design
+                  style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255, 255, 255, 0.03); color: var(--text-color); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.08);">Design
                   System Creation</span>
                 <span
-                  style="font-family: 'Public Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #ffffff; color: #00152a; padding: 10px 20px; border-radius: 6px; border: 1px solid #dde3ee;">Copywriting</span>
+                  style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255, 255, 255, 0.03); color: var(--text-color); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.08);">Copywriting</span>
               </div>
             </div>
 
-            <div style="border-top: 1px solid #dde3ee; padding-top: 32px;">
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 32px;">
               <p
-                style="font-family: 'Public Sans', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--highlight); margin-bottom: 16px;">
+                style="font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--highlight); margin-bottom: 16px;">
                 Build</p>
               <div style="display: flex; flex-wrap: wrap; gap: 10px;">
                 <span
-                  style="font-family: 'Public Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #ffffff; color: #00152a; padding: 10px 20px; border-radius: 6px; border: 1px solid #dde3ee;">Wireframes</span>
+                  style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255, 255, 255, 0.03); color: var(--text-color); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.08);">Wireframes</span>
                 <span
-                  style="font-family: 'Public Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #ffffff; color: #00152a; padding: 10px 20px; border-radius: 6px; border: 1px solid #dde3ee;">Prototypes</span>
+                  style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255, 255, 255, 0.03); color: var(--text-color); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.08);">Prototypes</span>
                 <span
-                  style="font-family: 'Public Sans', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: #ffffff; color: #00152a; padding: 10px 20px; border-radius: 6px; border: 1px solid #dde3ee;">Developer
+                  style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(255, 255, 255, 0.03); color: var(--text-color); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.08);">Developer
                   Support</span>
               </div>
             </div>
@@ -222,7 +213,7 @@
   </section>
 
   <!-- ── Gallery ── -->
-  <section class="section" style="background: #f0f2f7;">
+  <section class="section" style="background: rgba(17, 24, 39, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.05);">
     <div class="container">
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
         <div style="grid-column: span 2; border-radius: 8px; overflow: hidden;">
@@ -241,17 +232,7 @@
     </div>
   </section>
 
-  <!-- ── Footer ── -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__logo">
-          <img src="/logo.svg" alt="Oliver Logo" style="height: 19px; width: auto;" />
-        </div>
-        <p class="footer__copy">© 2026 Oliver Bibby. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+
 
 </body>
 

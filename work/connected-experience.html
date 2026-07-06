@@ -12,40 +12,42 @@
 
 <body>
 
-  <!-- ── Navigation ── -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo">
-        <img src="/logo.svg" alt="Oliver Logo" style="height: 20px; width: auto;" />
-      </a>
-      <ul class="nav__links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/#work">Case Studies</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-      <div class="nav__right">
-        <button class="nav__hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Drawer -->
-  <div class="nav__drawer">
-    <a href="/">Home</a>
-    <a href="/#work">Case Studies</a>
-    <a href="/contact.html">Contact</a>
+  <!-- Decorative Glowing Background Mesh Blobs -->
+  <div class="mesh-bg">
+    <div class="blob blob--violet"></div>
+    <div class="blob blob--blue"></div>
+    <div class="blob blob--indigo"></div>
   </div>
 
+  <!-- ── Floating Logo ── -->
+  <div class="logo-fixed">
+    <a href="/">
+      <img src="/logo.svg" alt="Oliver Logo" class="logo-img" />
+    </a>
+  </div>
+
+  <!-- ── Navigation (Floating Bottom Pill Dock) ── -->
+  <nav class="nav" id="redesign-nav">
+    <ul class="nav__links">
+      <li><a href="/#about" class="nav-link-item">Home</a></li>
+      <li><a href="/#work" class="nav-link-item active">Case Studies</a></li>
+      <li><a href="/contact.html" class="nav-link-item">Contact</a></li>
+    </ul>
+  </nav>
+
   <!-- ── Project Hero ── -->
-  <section class="section" style="padding-top: calc(var(--nav-h) + 60px); padding-bottom: 40px;">
+  <section class="section" style="padding-top: calc(var(--nav-height) + 60px); padding-bottom: 40px;">
     <div class="container">
-      <div class="fade-up">
-        <p class="eyebrow" style="margin-bottom: 12px; color: var(--highlight);">STRATEGY</p>
-        <h1 class="h1" style="margin-bottom: 32px;">The Connected Experience</h1>
+      <div class="hero__inner" style="margin-bottom: 48px;">
+        <div class="hero__badge fade-up" style="margin-bottom: 16px;">
+          <span class="badge-dot"></span>
+          <span class="badge-text">Strategy</span>
+        </div>
+        <h1 class="hero__headline h1 fade-up delay-1" style="margin-bottom: 0;">
+          The Connected <span class="highlight-text font-serif">Experience</span>.
+        </h1>
       </div>
-      <div class="fade-up delay-1" style="overflow: hidden; border-radius: 8px;">
+      <div class="fade-up delay-2" style="overflow: hidden; border-radius: 20px; border: 1px solid var(--card-border); box-shadow: 0 10px 35px rgba(0,0,0,0.3);">
         <img src="/work/connected/Connected-Experience-1-Department-of-Education.jpg" alt="Connected Experience Hero"
           style="width: 100%; height: auto; display: block;" />
       </div>
@@ -54,31 +56,27 @@
 
   <!-- ── Metadata Bar ── -->
   <section
-    style="padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface);">
+    style="padding: 28px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(255, 255, 255, 0.08); background: rgba(17, 24, 39, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
     <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 32px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 32px; text-align: left;">
         <div>
-          <p class="eyebrow" style="font-size: 0.65rem; margin-bottom: 8px;">BRAND</p>
-          <p
-            style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--accent);">
+          <p class="form-label" style="font-size: 0.7rem; margin-bottom: 6px;">Brand</p>
+          <p style="font-family: var(--font-sans); font-weight: 500; font-size: 1rem; color: var(--text-color);">
             Dept of Education</p>
         </div>
         <div>
-          <p class="eyebrow" style="font-size: 0.65rem; margin-bottom: 8px;">ROLE</p>
-          <p
-            style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--accent);">
+          <p class="form-label" style="font-size: 0.7rem; margin-bottom: 6px;">Role</p>
+          <p style="font-family: var(--font-sans); font-weight: 500; font-size: 1rem; color: var(--text-color);">
             Design Strategy Lead</p>
         </div>
         <div>
-          <p class="eyebrow" style="font-size: 0.65rem; margin-bottom: 8px;">TIMELINE</p>
-          <p
-            style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--accent);">
+          <p class="form-label" style="font-size: 0.7rem; margin-bottom: 6px;">Timeline</p>
+          <p style="font-family: var(--font-sans); font-weight: 500; font-size: 1rem; color: var(--text-color);">
             2023-2024</p>
         </div>
         <div>
-          <p class="eyebrow" style="font-size: 0.65rem; margin-bottom: 8px;">SERVICES</p>
-          <p
-            style="font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--accent);">
+          <p class="form-label" style="font-size: 0.7rem; margin-bottom: 6px;">Services</p>
+          <p style="font-family: var(--font-sans); font-weight: 500; font-size: 1rem; color: var(--accent);">
             Service Design / Strategy</p>
         </div>
       </div>
@@ -137,7 +135,7 @@
   </section>
 
   <!-- ── Gallery ── -->
-  <section class="section" style="background: var(--surface-container-low);">
+  <section class="section" style="background: rgba(17, 24, 39, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.05);">
     <div class="container">
       <div style="display: grid; grid-template-columns: 1fr; gap: 48px; max-width: 900px; margin: 0 auto;">
         <div style="border-radius: 8px; overflow: hidden;">
@@ -164,17 +162,7 @@
     </div>
   </section>
 
-  <!-- ── Footer ── -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__logo">
-          <img src="/logo.svg" alt="Oliver Logo" style="height: 19px; width: auto;" />
-        </div>
-        <p class="footer__copy">© 2026 Oliver Bibby. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+
 
 </body>
 
