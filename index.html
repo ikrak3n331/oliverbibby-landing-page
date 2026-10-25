@@ -8,7 +8,8 @@
   <meta name="description"
     content="Oliver Bibby is a Design Lead specialising in UX strategy, product design, and design systems. Based in Melbourne, working globally." />
   <link rel="icon" type="image/png" href="/favicon.png" />
-  
+  <script>document.documentElement.classList.add('js');</script>
+
   <!-- Premium Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,22 +44,55 @@
     </ul>
   </nav>
 
-  <!-- ── Hero Section ── -->
-  <section class="hero" id="about">
-    <canvas id="hero-grid-canvas"></canvas>
-    <div class="container">
-      <div class="hero__inner">
-        <h1 class="hero__headline h1 fade-up delay-1">
-          Connecting people, services, and <span class="highlight-text font-serif">business strategy</span>.
-        </h1>
-        <p class="hero__sub lead fade-up delay-2">
-          Decades of experience unraveling complex systems to deliver human-centered digital infrastructure at a national scale.
-        </p>
-        <div class="hero__actions fade-up delay-3">
-          <a href="/#work" class="btn btn--primary" id="view-work-btn">Explore Case Studies</a>
-          <a href="/contact.html" class="btn btn--secondary" id="contact-btn">Let's Connect</a>
+  <!-- ── Hero Section (animated story: src/hero) ── -->
+  <section class="hero hero--story" id="about" aria-labelledby="hero-title">
+    <canvas class="hero__canvas" aria-hidden="true"></canvas>
+    <div class="container hero__layout">
+      <div class="story-controls" role="group" aria-label="Intro animation">
+        <button type="button" class="story-controls__toggle" data-state="pause" aria-label="Pause intro">
+          <svg class="icon-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="2.5" width="3" height="11" rx="1" /><rect x="9.5" y="2.5" width="3" height="11" rx="1" /></svg>
+          <svg class="icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8v10.4a.8.8 0 0 0 1.2.7l8.3-5.2a.8.8 0 0 0 0-1.4L5.7 2.1a.8.8 0 0 0-1.2.7Z" /></svg>
+          <svg class="icon-replay" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 6.2A5.2 5.2 0 1 1 2.8 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /><path d="M2.2 2.6v4h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <button type="button" class="story-controls__sound" data-state="off" aria-pressed="false" aria-label="Turn sound on">
+          <svg class="icon-sound-off" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 6v4h2.6L8.5 13V3L5.1 6Z" /><path d="m11 6.2 3.6 3.6m0-3.6L11 9.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
+          <svg class="icon-sound-on" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 6v4h2.6L8.5 13V3L5.1 6Z" /><path d="M10.8 5.6a3.4 3.4 0 0 1 0 4.8M12.6 3.9a5.8 5.8 0 0 1 0 8.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
+        </button>
+        <ol class="story-controls__chapters"></ol>
+        <button type="button" class="story-controls__skip">
+          Skip intro
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m0 0L8.5 4.5M12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+      </div>
+      <div class="hero__spacer" aria-hidden="true"></div>
+      <div class="hero__copy">
+        <!-- Story captions, built from src/hero/scenes.ts (decorative; the script is repeated below for screen readers) -->
+        <div class="story" data-align="left" aria-hidden="true">
+          <div class="story__captions"></div>
+        </div>
+
+        <!-- Final frame of the story; also the hero without JavaScript or with reduced motion -->
+        <div class="hero__final">
+          <p class="hero__eyebrow" data-step="0">Experience Lead <span aria-hidden="true">·</span> Melbourne</p>
+          <h1 class="hero__title h1" id="hero-title">
+            <span class="hero__title-line" data-step="1">I’m Oliver Bibby.</span>
+            <span class="hero__title-line" data-step="2">Let’s make something <span class="highlight-text font-serif">amazing</span>.</span>
+          </h1>
+          <p class="hero__lede lead" data-step="3">
+            Decades of experience unraveling complex systems to deliver human-centered digital infrastructure at a national scale.
+          </p>
+          <div class="hero__actions" data-step="4">
+            <a href="/#work" class="btn btn--primary" id="view-work-btn">Explore Case Studies</a>
+          </div>
         </div>
       </div>
+    </div>
+
+    <div class="sr-only">
+      <p>Great digital systems don’t happen in a vacuum. They happen when clear project direction and empowered people move together.</p>
+      <p>As an Experience Lead my role goes far beyond the screen. I partner closely with leadership, product managers, project managers, and developers, turning complex, competing priorities into a single, connected vision.</p>
+      <p>I map out where we are today and forecast where we need to be tomorrow. By untangling current-state bottlenecks and architecting future-state blueprints, I establish the governance, design frameworks, and best practices that allow enterprise platforms to scale seamlessly.</p>
+      <p>Because true UX leadership isn’t just about designing systems, it’s about empowering and elevating the people who build them. I manage project direction and team growth hand-in-hand, mentoring and upskilling UX designers so everyone has the clarity, capability, and confidence to deliver their best work.</p>
     </div>
   </section>
 
