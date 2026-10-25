@@ -527,26 +527,26 @@ img {
   flex: none;
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   border: 1px solid var(--card-border);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--text-color);
   transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .story-controls__toggle:hover,
 .story-controls__sound:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.14);
   border-color: var(--card-border-hover);
 }
 
 .story-controls__toggle svg,
 .story-controls__sound svg {
   grid-area: 1 / 1;
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   fill: currentColor;
   opacity: 0;
   transform: scale(0.6);
