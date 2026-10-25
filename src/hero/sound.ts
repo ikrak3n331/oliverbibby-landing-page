@@ -16,6 +16,39 @@ const LEVEL = 0.5;
 
 const hz = (midi: number) => 440 * Math.pow(2, (midi - 69) / 12);
 
+type AudioSessionNavigator = Navigator & { audioSession?: { type: string } };
+
+/** iPhone, iPod, or an iPad presenting itself as a Mac. */
+const isIOS = () =>
+  /iPad|iPhone|iPod/.test(navigator.userAgent) || (/Mac/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+
+/** A tenth of a second of silence as a WAV, for switching older iOS into playback mode. */
+function silentWav(): string {
+  const rate = 8000;
+  const n = 800;
+  const buf = new ArrayBuffer(44 + n * 2);
+  const v = new DataView(buf);
+  const text = (at: number, s: string) => {
+    for (let i = 0; i < s.length; i++) v.setUint8(at + i, s.charCodeAt(i));
+  };
+  text(0, 'RIFF');
+  v.setUint32(4, 36 + n * 2, true);
+  text(8, 'WAVE');
+  text(12, 'fmt ');
+  v.setUint32(16, 16, true);
+  v.setUint16(20, 1, true); // PCM
+  v.setUint16(22, 1, true); // mono
+  v.setUint32(24, rate, true);
+  v.setUint32(28, rate * 2, true);
+  v.setUint16(32, 2, true);
+  v.setUint16(34, 16, true);
+  text(36, 'data');
+  v.setUint32(40, n * 2, true);
+  return URL.createObjectURL(new Blob([buf], { type: 'audio/wav' }));
+}
+
+const GESTURES = ['touchend', 'click', 'keydown'];
+
 interface Chord {
   bass: number; // MIDI
   tones: number[]; // voicing, low to high
@@ -124,6 +157,13 @@ export class Score {
   private m = 0; // music time
   private doneAt = -1; // audio time the story completed, for the ambient loop
   private step = -1; // last scheduled sixteenth
+  private silent: HTMLAudioElement | null = null;
+  private sleep = 0;
+
+  /** Later taps bring audio back if iOS suspended it (lock screen, app switch, a call). */
+  private readonly wake = () => {
+    if (this.enabled && this.ctx && this.ctx.state !== 'running') this.unlock();
+  };
 
   get on(): boolean {
     return this.enabled;
@@ -132,18 +172,34 @@ export class Score {
   /** Must run inside a user gesture so the browser lets audio start. */
   enable(): void {
     this.enabled = true;
+    // iOS routes Web Audio through an "ambient" session that Silent mode mutes;
+    // a "playback" session plays like any other media (iOS 17+)
+    const session = (navigator as AudioSessionNavigator).audioSession;
+    if (session) session.type = 'playback';
     if (!this.ctx) this.build();
-    void this.ctx!.resume();
+    window.clearTimeout(this.sleep);
+    this.unlock();
     this.resync();
     this.level(1.2);
     window.clearInterval(this.timer);
     this.timer = window.setInterval(() => this.tick(), 25);
+    for (const type of GESTURES) document.addEventListener(type, this.wake, true);
   }
 
   disable(): void {
     this.enabled = false;
     window.clearInterval(this.timer);
+    for (const type of GESTURES) document.removeEventListener(type, this.wake, true);
     this.level(0.5);
+    this.silent?.pause();
+    // once faded out, give the device's audio back to other apps
+    window.clearTimeout(this.sleep);
+    this.sleep = window.setTimeout(() => {
+      if (this.enabled) return;
+      void this.ctx?.suspend();
+      const session = (navigator as AudioSessionNavigator).audioSession;
+      if (session) session.type = 'auto';
+    }, 600);
   }
 
   /** Mutes while the hero is off screen or the tab is hidden. */
@@ -152,10 +208,33 @@ export class Score {
     this.active = active;
     if (!this.ctx || !this.enabled) return;
     if (active) {
-      void this.ctx.resume();
+      if (this.ctx.state !== 'running') void this.ctx.resume();
+      void this.silent?.play().catch(() => {});
       this.resync();
     }
     this.level(active ? 0.8 : 0.3);
+  }
+
+  /** Wakes the audio context from inside a user gesture, the way iOS requires. */
+  private unlock(): void {
+    const ctx = this.ctx!;
+    if (ctx.state !== 'running') void ctx.resume();
+    // a one-sample silent blip: the long-standing way to unlock Web Audio on iOS
+    const blip = ctx.createBufferSource();
+    blip.buffer = ctx.createBuffer(1, 1, ctx.sampleRate);
+    blip.connect(ctx.destination);
+    blip.start();
+    // older iOS has no audio session API; a playing media element switches the
+    // page into playback mode instead, so Silent mode stops muting the track
+    if (isIOS() && !(navigator as AudioSessionNavigator).audioSession) {
+      if (!this.silent) {
+        this.silent = new Audio(silentWav());
+        this.silent.loop = true;
+        this.silent.setAttribute('playsinline', '');
+        this.silent.setAttribute('x-webkit-airplay', 'deny');
+      }
+      void this.silent.play().catch(() => {});
+    }
   }
 
   /** Follows the story clock; call every frame (and after seeks). */
@@ -189,7 +268,13 @@ export class Score {
     for (const h of this.held) {
       h.gain.gain.cancelScheduledValues(now);
       h.gain.gain.setTargetAtTime(0, now, 0.04);
-      for (const s of h.srcs) s.stop(now + 0.3);
+      for (const s of h.srcs) {
+        try {
+          s.stop(now + 0.3);
+        } catch {
+          /* older WebKit throws if a source was already stopped */
+        }
+      }
     }
     this.held = [];
     // pick the current bar's pad up mid-way so the harmony is there at once
